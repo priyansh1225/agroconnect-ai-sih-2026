@@ -1205,3 +1205,35 @@ td strong,
   }
 
 }
+
+/* Keep Farmer header visible while the dashboard scrolls */
+
+.page-wrapper {
+  padding-top: 68px;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: var(--sidebar);
+  z-index: 100;
+  width: auto;
+}
+
+@media (max-width: 900px) {
+  .page-wrapper {
+    padding-top: 68px;
+  }
+
+  .topbar {
+    left: 0;
+    z-index: 100;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-wrapper {
+    padding-top: 60px;
+  }
+}
