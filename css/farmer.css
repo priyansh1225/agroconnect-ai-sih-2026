@@ -1,8 +1,66 @@
+/* =========================================================
+   AGROCONNECT AI — FARMER DASHBOARD
+   FARMER.CSS
+
+   This file controls:
+   - Dashboard content
+   - Dashboard cards
+   - Market price sections
+   - Net realization section
+   - Crop lot section
+   - Mandi comparison table
+   - Transaction section
+   - Responsive dashboard layout
+   - Sticky topbar
+   - Mobile sidebar behaviour
+
+   Shared/global styles remain in common.css.
+   ========================================================= */
+
+
+/* =========================================================
+   DASHBOARD CONTENT
+   ========================================================= */
+
 .dashboard-content {
+  width: 100%;
   max-width: 1400px;
-  margin: auto;
+  margin: 0 auto;
   padding: 35px;
 }
+
+
+/* =========================================================
+   STICKY TOP HEADER
+   ========================================================= */
+
+/*
+  The header stays visible while the dashboard is being
+  scrolled.
+
+  z-index keeps it above normal dashboard content.
+*/
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+}
+
+/*
+  Added by farmer.js after the user starts scrolling.
+  This gives us a hook for a subtle shadow in common.css
+  if required.
+*/
+
+.topbar.is-scrolled {
+  box-shadow: 0 4px 14px rgba(24, 52, 28, 0.08);
+}
+
+
+/* =========================================================
+   COMMON FLEX GROUPS
+   ========================================================= */
 
 .dashboard-welcome,
 .section-heading,
@@ -20,6 +78,11 @@
 .section-heading {
   align-items: flex-end;
 }
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
 
 .eyebrow {
   margin: 0 0 7px;
@@ -39,10 +102,12 @@ h2 {
 
 h1 {
   font-size: 38px;
+  line-height: 1.15;
 }
 
 h2 {
   font-size: 24px;
+  line-height: 1.2;
 }
 
 h3 {
@@ -59,14 +124,31 @@ h3 {
   font-size: 12px;
 }
 
+
+/* =========================================================
+   DATA STATUS
+   ========================================================= */
+
 .data-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
   padding: 8px 10px;
+
   border: 1px solid #d7e4d2;
   border-radius: 5px;
+
   background: #f7fcf4;
+
   color: var(--muted);
   font-size: 11px;
 }
+
+
+/* =========================================================
+   DASHBOARD GRIDS
+   ========================================================= */
 
 .quick-actions,
 .price-summary-grid,
@@ -78,9 +160,14 @@ h3 {
 
 .quick-actions,
 .price-summary-grid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 25px;
 }
+
+
+/* =========================================================
+   QUICK ACTION CARDS
+   ========================================================= */
 
 .quick-action-card,
 .price-summary-card,
@@ -97,8 +184,11 @@ h3 {
   display: flex;
   align-items: center;
   gap: 12px;
+
   min-height: 78px;
   padding: 14px;
+
+  text-decoration: none;
 }
 
 .quick-action-card:hover {
@@ -107,12 +197,18 @@ h3 {
 
 .quick-action-icon {
   display: grid;
+  flex: 0 0 auto;
+
   width: 39px;
   height: 39px;
+
   place-items: center;
+
   border-radius: 50%;
   background: var(--green-light);
+
   color: var(--green);
+
   font-size: 18px;
   font-weight: bold;
 }
@@ -127,6 +223,7 @@ h3 {
 }
 
 .quick-action-card small {
+  margin-top: 2px;
   color: var(--muted);
   font-size: 11px;
 }
@@ -137,8 +234,19 @@ h3 {
   font-size: 20px;
 }
 
+
+/* =========================================================
+   DASHBOARD SECTIONS
+   ========================================================= */
+
 .dashboard-section {
   margin-top: 30px;
+
+  /*
+    When an anchor jumps to a section, don't allow the
+    sticky header to cover the heading.
+  */
+  scroll-margin-top: 90px;
 }
 
 .section-heading {
@@ -150,7 +258,18 @@ h3 {
   color: var(--green);
   font-size: 12px;
   font-weight: bold;
+  text-decoration: none;
 }
+
+.section-link:hover,
+.lot-card-footer a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   PRICE SUMMARY
+   ========================================================= */
 
 .price-summary-card {
   padding: 18px;
@@ -161,6 +280,11 @@ h3 {
   background: #fbfdf9;
 }
 
+
+/* =========================================================
+   CROP / BUYER BADGES
+   ========================================================= */
+
 .crop-badge,
 .buyer-type,
 .lot-status,
@@ -168,7 +292,9 @@ h3 {
 .recommended-label,
 .reliability-score {
   display: inline-block;
+
   border-radius: 20px;
+
   font-size: 10px;
   font-weight: bold;
 }
@@ -195,6 +321,11 @@ h3 {
   color: #286560;
 }
 
+
+/* =========================================================
+   PRICE TREND
+   ========================================================= */
+
 .trend-positive {
   color: var(--success);
   font-size: 11px;
@@ -206,29 +337,50 @@ h3 {
   font-size: 11px;
 }
 
+
+/* =========================================================
+   MARKET PRICE
+   ========================================================= */
+
 .price-location {
   margin: 18px 0 2px;
+
   color: var(--muted);
   font-size: 12px;
 }
 
 .market-price {
   margin: 0;
+
   color: var(--green-dark);
+
   font-family: Georgia, serif;
   font-size: 30px;
   font-weight: bold;
+  line-height: 1.2;
 }
 
 .market-price span {
   color: var(--muted);
+
   font-family: Arial, sans-serif;
   font-size: 11px;
+  font-weight: normal;
 }
 
+
+/* =========================================================
+   TWO-COLUMN DASHBOARD
+   ========================================================= */
+
 .dashboard-two-column {
-  grid-template-columns: 1.4fr 0.8fr;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
 }
+
+
+/* =========================================================
+   CALCULATOR
+   ========================================================= */
 
 .calculator-preview,
 .my-lot-section {
@@ -237,8 +389,13 @@ h3 {
 
 .calculator-lot-info {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
   gap: 8px;
+
   margin-bottom: 15px;
+
   color: var(--muted);
   font-size: 12px;
 }
@@ -250,10 +407,14 @@ h3 {
 
 .selling-option {
   display: grid;
-  grid-template-columns: 16px 1fr auto;
+
+  grid-template-columns: 16px minmax(0, 1fr) auto;
+
   gap: 11px;
   align-items: center;
+
   padding: 12px;
+
   border: 1px solid var(--line);
   border-radius: 6px;
 }
@@ -266,12 +427,17 @@ h3 {
 .option-radio {
   width: 14px;
   height: 14px;
+
   border: 4px solid var(--green);
   border-radius: 50%;
 }
 
 .option-radio.empty {
   border: 1px solid #a6b7ae;
+}
+
+.option-details {
+  min-width: 0;
 }
 
 .option-details h3 {
@@ -285,6 +451,7 @@ h3 {
 .recommended-label {
   margin-left: 7px;
   padding: 4px 7px;
+
   background: #dfeecd;
   color: #4c7339;
 }
@@ -309,19 +476,28 @@ h3 {
 }
 
 .calculator-preview .primary-button {
+  width: 100%;
   margin-top: 14px;
 }
 
+
+/* =========================================================
+   CROP LOT
+   ========================================================= */
+
 .lot-card {
   padding: 15px;
+
   border: 1px solid #d8e6d1;
   border-radius: 8px;
+
   background: #fbfdf9;
 }
 
 .lot-status,
 .quality-level {
   padding: 5px 7px;
+
   background: #fff0d8;
   color: #925e18;
 }
@@ -331,10 +507,21 @@ h3 {
   font-size: 14px;
 }
 
+.lot-location {
+  margin: 0;
+}
+
+
+/* =========================================================
+   QUALITY STATUS
+   ========================================================= */
+
 .quality-status {
   display: flex;
   justify-content: space-between;
+
   gap: 10px;
+
   margin-top: 16px;
 }
 
@@ -352,16 +539,26 @@ h3 {
   font-size: 11px;
 }
 
+
+/* =========================================================
+   QUALITY PROGRESS
+   ========================================================= */
+
 .quality-progress {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 5px;
+
   margin-top: 10px;
 }
 
 .quality-progress span {
   height: 5px;
+
   border-radius: 4px;
+
   background: #dce5d7;
 }
 
@@ -369,32 +566,56 @@ h3 {
   background: #86ad67;
 }
 
+
+/* =========================================================
+   LOT FOOTER
+   ========================================================= */
+
 .lot-card-footer {
+  align-items: center;
+
   margin-top: 15px;
   padding-top: 12px;
+
   border-top: 1px solid var(--line);
+
   font-size: 10px;
 }
 
+
+/* =========================================================
+   FPO HIGHLIGHT
+   ========================================================= */
+
 .fpo-highlight {
   display: flex;
-  gap: 10px;
   align-items: center;
+
+  gap: 10px;
+
   margin-top: 12px;
   padding: 13px;
+
   border-radius: 7px;
+
   background: var(--green-dark);
   color: white;
 }
 
 .fpo-icon {
   display: grid;
+  flex: 0 0 auto;
+
   width: 28px;
   height: 28px;
+
   place-items: center;
+
   border-radius: 50%;
+
   background: #bad991;
   color: var(--green-dark);
+
   font-weight: bold;
 }
 
@@ -404,61 +625,102 @@ h3 {
 
 .fpo-highlight p {
   margin: 3px 0 0;
+
   color: #c2d7c3;
   font-size: 10px;
 }
 
 .small-button {
+  flex: 0 0 auto;
+
   margin-left: auto;
   padding: 7px 9px;
+
   border: 0;
+  border-radius: 4px;
+
   background: white;
   color: var(--green);
+
+  cursor: pointer;
 }
+
+.small-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   MANDI TABLE FILTERS
+   ========================================================= */
 
 .table-filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 }
 
 .filter-button {
   padding: 6px 9px;
+
   border: 1px solid var(--line);
   border-radius: 18px;
+
   background: white;
   color: var(--muted);
+
   font-size: 10px;
+
+  cursor: pointer;
 }
 
 .filter-button.active {
   border-color: #a9c697;
+
   background: var(--green-light);
   color: var(--green);
 }
 
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
 .table-container {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 table {
   width: 100%;
   min-width: 720px;
+
   border-collapse: collapse;
+
   text-align: left;
 }
 
 th,
 td {
   padding: 14px 16px;
+
   border-bottom: 1px solid #e7ece4;
+
   font-size: 12px;
 }
 
 th {
   background: #f6f8f3;
+
   color: var(--muted);
+
   font-size: 10px;
   text-transform: uppercase;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 td strong,
@@ -467,6 +729,8 @@ td strong,
 }
 
 .table-subtext {
+  margin-top: 3px;
+
   color: var(--muted);
   font-size: 10px;
 }
@@ -482,19 +746,37 @@ td strong,
 
 .table-action {
   padding: 6px 8px;
+
   border: 1px solid #b8cfb1;
   border-radius: 4px;
+
   background: white;
   color: var(--green);
+
   font-size: 10px;
   font-weight: bold;
+
+  cursor: pointer;
 }
 
+.table-action:hover {
+  background: var(--green-light);
+}
+
+
+/* =========================================================
+   TRANSACTION SECTION
+   ========================================================= */
+
 .transaction-section {
-  grid-template-columns: 1fr 0.75fr;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.75fr);
+
   align-items: center;
+
   padding: 27px;
+
   border-radius: 12px;
+
   background: #e7efe0;
 }
 
@@ -513,41 +795,160 @@ td strong,
 
 .transaction-preview h3 {
   margin: 18px 0 4px;
+
   font-size: 15px;
 }
 
 .transaction-preview-footer {
   align-items: center;
+
   margin-top: 15px;
   padding-top: 12px;
+
   border-top: 1px solid var(--line);
+
   color: var(--muted);
   font-size: 10px;
 }
 
 .transaction-preview-footer button {
   padding: 7px 9px;
+
   border: 0;
   border-radius: 4px;
+
   background: var(--green);
   color: white;
+
   font-size: 10px;
   font-weight: bold;
+
+  cursor: pointer;
 }
 
+
+/* =========================================================
+   PROTOTYPE MESSAGE
+   ========================================================= */
+
+.prototype-message {
+  position: fixed;
+
+  left: 50%;
+  bottom: 24px;
+
+  z-index: 200;
+
+  transform: translateX(-50%);
+
+  width: max-content;
+  max-width: calc(100vw - 30px);
+
+  padding: 11px 16px;
+
+  border-radius: 7px;
+
+  background: var(--green-dark);
+  color: white;
+
+  font-size: 12px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   LARGE TABLET / SMALL LAPTOP
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .dashboard-content {
+    padding: 30px 25px;
+  }
+
+  .dashboard-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .transaction-section {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
 @media (max-width: 900px) {
+
+  /*
+    Dashboard grids become single-column.
+  */
+
   .quick-actions,
   .price-summary-grid,
   .dashboard-two-column,
   .transaction-section {
     grid-template-columns: 1fr;
   }
+
+
+  /*
+    Header must remain above the mobile sidebar overlay.
+  */
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+  }
+
+
+  /*
+    Prevent content from accidentally creating horizontal
+    scrolling.
+  */
+
+  .dashboard-content {
+    max-width: 100%;
+  }
+
+
+  /*
+    FPO content can become crowded on smaller screens.
+  */
+
+  .fpo-highlight {
+    align-items: flex-start;
+  }
+
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 600px) {
+
+  /* -------------------------------------------------------
+     DASHBOARD SPACING
+     ------------------------------------------------------- */
+
   .dashboard-content {
+    width: 100%;
     padding: 28px 18px;
   }
+
+
+  /* -------------------------------------------------------
+     WELCOME
+     ------------------------------------------------------- */
 
   .dashboard-welcome,
   .section-heading {
@@ -559,21 +960,248 @@ td strong,
     font-size: 31px;
   }
 
+  h2 {
+    font-size: 22px;
+  }
+
+  .welcome-copy {
+    line-height: 1.6;
+  }
+
+
+  /* -------------------------------------------------------
+     DATA STATUS
+     ------------------------------------------------------- */
+
+  .data-status {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+
+  /* -------------------------------------------------------
+     QUICK ACTIONS
+     ------------------------------------------------------- */
+
+  .quick-actions {
+    margin-top: 20px;
+  }
+
+  .quick-action-card {
+    min-height: 70px;
+  }
+
+
+  /* -------------------------------------------------------
+     PRICE CARDS
+     ------------------------------------------------------- */
+
+  .price-summary-grid {
+    margin-top: 20px;
+  }
+
+  .price-summary-card {
+    padding: 16px;
+  }
+
+  .market-price {
+    font-size: 27px;
+  }
+
+
+  /* -------------------------------------------------------
+     SECTION HEADING
+     ------------------------------------------------------- */
+
+  .section-heading {
+    gap: 8px;
+  }
+
+  .section-link {
+    margin-top: 2px;
+  }
+
+
+  /* -------------------------------------------------------
+     SELLING OPTIONS
+     ------------------------------------------------------- */
+
   .selling-option {
-    grid-template-columns: 16px 1fr;
+    grid-template-columns: 16px minmax(0, 1fr);
+
+    align-items: start;
+  }
+
+  .option-details {
+    min-width: 0;
   }
 
   .option-value {
     grid-column: 2;
+
     text-align: left;
   }
+
+  .option-value strong {
+    margin-top: 3px;
+  }
+
+  .option-title-row {
+    display: block;
+  }
+
+  .recommended-label {
+    margin-top: 6px;
+    margin-left: 0;
+  }
+
+
+  /* -------------------------------------------------------
+     LOT
+     ------------------------------------------------------- */
+
+  .lot-card-top {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .quality-status {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+
+  /* -------------------------------------------------------
+     LOT FOOTER
+     ------------------------------------------------------- */
 
   .lot-card-footer,
   .transaction-preview-footer {
     align-items: flex-start;
     flex-direction: column;
   }
+
+
+  /* -------------------------------------------------------
+     FPO
+     ------------------------------------------------------- */
+
+  .fpo-highlight {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .fpo-highlight > div {
+    flex: 1 1 180px;
+  }
+
+  .small-button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+
+  /* -------------------------------------------------------
+     TABLE FILTERS
+     ------------------------------------------------------- */
+
+  .table-filters {
+    width: 100%;
+  }
+
+  .filter-button {
+    flex: 1;
+  }
+
+
+  /* -------------------------------------------------------
+     TRANSACTION
+     ------------------------------------------------------- */
+
+  .transaction-section {
+    padding: 20px;
+  }
+
+  .transaction-preview {
+    padding: 15px;
+  }
+
+
+  /* -------------------------------------------------------
+     PROTOTYPE MESSAGE
+     ------------------------------------------------------- */
+
+  .prototype-message {
+    bottom: 15px;
+
+    width: calc(100vw - 30px);
+    max-width: none;
+
+    box-sizing: border-box;
+  }
+
 }
-.dashboard-section {
-  scroll-margin-top: 90px;
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .dashboard-content {
+    padding: 24px 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .quick-action-card {
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .quick-action-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .calculator-preview,
+  .my-lot-section {
+    padding: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.quick-action-card:focus-visible,
+.section-link:focus-visible,
+.lot-card-footer a:focus-visible,
+.filter-button:focus-visible,
+.table-action:focus-visible,
+.small-button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .topbar {
+    scroll-behavior: auto;
+  }
+
 }

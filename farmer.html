@@ -25,18 +25,17 @@
          SIDEBAR: Main product navigation
          Each link will connect to a real screen later.
          ========================================================= -->
-    <aside class="sidebar" aria-label="Application navigation">
+    <aside id="mobile-sidebar" class="sidebar" aria-label="Application navigation">
       <!-- Mobile-only sidebar close button -->
-<button
-  class="sidebar-close-button"
-  type="button"
-  aria-label="Close navigation"
->
-  ×
-</button>
+      <button
+        class="sidebar-close-button"
+        type="button"
+        aria-label="Close navigation"
+      >
+        <span aria-hidden="true">×</span>
+      </button>
 
-
-      <div class="brand-area">
+<div class="brand-area">
         <a class="brand" href="index.html" aria-label="AgroConnect dashboard">
           <span class="brand-icon" aria-hidden="true">✦</span>
           <span>
@@ -48,7 +47,7 @@
         <p class="brand-tagline">Better markets. Better farmer choices.</p>
       </div>
 
-      <nav class="sidebar-nav">
+      <nav class="sidebar-nav" aria-label="Dashboard sections">
         <a class="nav-item active" href="index.html" aria-current="page">
           <span aria-hidden="true">⌂</span>
           Dashboard
@@ -101,20 +100,28 @@
       </div>
     </aside>
 
+    <!-- Mobile backdrop: tapping outside the sidebar closes it -->
+    <div
+      class="sidebar-overlay"
+      aria-hidden="true"
+      hidden
+    ></div>
+
     <div class="page-wrapper">
       <!-- =========================================================
            TOP BAR: Profile, language and notification controls
            Language is a real product requirement, not decoration.
            ========================================================= -->
-      <header class="topbar">
+      <header class="topbar topbar-sticky" data-sticky-header>
        <button
-  class="mobile-menu-button"
-  type="button"
-  aria-label="Open navigation"
-  aria-expanded="false"
->
-  ☰
-</button>
+          class="mobile-menu-button"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobile-sidebar"
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
 
         <div class="location-selector">
           <span class="location-icon" aria-hidden="true">⌖</span>

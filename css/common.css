@@ -1,16 +1,34 @@
+/* =========================================================
+   AGROCONNECT AI
+   COMMON STYLES
+   ========================================================= */
+
+/* =========================================================
+   ROOT VARIABLES
+   ========================================================= */
+
 :root {
   --green: #174b3c;
   --green-dark: #10372c;
   --green-light: #e6f0df;
+
   --cream: #f7f6f1;
   --white: #ffffff;
+
   --text: #18332c;
   --muted: #64756e;
   --line: #dce4da;
+
   --orange: #d8893e;
   --success: #287b47;
+
   --sidebar: 245px;
 }
+
+
+/* =========================================================
+   GLOBAL RESET
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -18,14 +36,20 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
   margin: 0;
+  position: relative;
+
   background: var(--cream);
   color: var(--text);
+
   font-family: Arial, "Segoe UI", sans-serif;
   line-height: 1.5;
+
+  overflow-x: hidden;
 }
 
 a {
@@ -44,15 +68,26 @@ a:focus-visible {
   outline-offset: 3px;
 }
 
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
 .skip-link {
   position: fixed;
   top: -100px;
   left: 15px;
-  z-index: 100;
+
+  z-index: 1000;
+
   padding: 10px 14px;
-  background: white;
+
+  background: var(--white);
   color: var(--green);
+
   font-weight: bold;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .skip-link:focus {
@@ -61,130 +96,209 @@ a:focus-visible {
 
 .visually-hidden {
   position: absolute;
+
   width: 1px;
   height: 1px;
+
   overflow: hidden;
+
   clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
-/* Sidebar */
+
+/* =========================================================
+   APP SHELL
+   ========================================================= */
 
 .app-shell {
   min-height: 100vh;
 }
 
+
+/* =========================================================
+   SIDEBAR - DESKTOP
+   ========================================================= */
+
 .sidebar {
   position: fixed;
+
   top: 0;
+  left: 0;
   bottom: 0;
+
   width: var(--sidebar);
+
   padding: 24px 16px 16px;
+
   background: var(--green-dark);
   color: #dce9df;
+
+  overflow-x: hidden;
   overflow-y: auto;
-  z-index: 20;
+
+  z-index: 200;
+
+  /* Desktop state */
+  transform: translateX(0);
 }
+
+
+/* =========================================================
+   SIDEBAR BRAND
+   ========================================================= */
 
 .brand-area {
   padding: 0 10px 24px;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .brand {
   display: flex;
   align-items: center;
+
   gap: 10px;
+
   color: white;
+
   font-size: 19px;
 }
 
 .brand-icon {
   display: grid;
+
   width: 34px;
   height: 34px;
+
   place-items: center;
+
   border-radius: 50% 50% 50% 5px;
+
   background: #60924d;
+
   transform: rotate(-18deg);
 }
 
 .brand em {
   color: #e3a45b;
+
   font-style: normal;
   font-weight: bold;
 }
 
 .brand-tagline {
   margin: 12px 0 0 44px;
+
   color: #aac3b4;
+
   font-size: 12px;
 }
 
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+   ========================================================= */
+
 .sidebar-nav {
   display: grid;
+
   gap: 5px;
+
   padding: 20px 0;
 }
 
 .nav-item {
   display: flex;
   align-items: center;
+
   gap: 13px;
+
   padding: 11px 12px;
+
   border-radius: 6px;
+
   color: #c1d3c6;
+
   font-size: 14px;
   font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .nav-item span {
   width: 18px;
+
   color: #b8d79b;
+
   text-align: center;
 }
 
 .nav-item:hover,
 .nav-item.active {
   background: rgba(255, 255, 255, 0.1);
+
   color: white;
 }
 
+
+/* =========================================================
+   SIDEBAR HELP CARD
+   ========================================================= */
+
 .help-card {
   margin-top: auto;
+
   padding: 15px;
+
   border: 1px solid rgba(190, 223, 155, 0.25);
   border-radius: 9px;
+
   background: rgba(102, 148, 71, 0.2);
 }
 
 .help-icon {
   display: grid;
+
   width: 25px;
   height: 25px;
+
   place-items: center;
+
   border-radius: 50%;
+
   background: #c5df9f;
   color: var(--green-dark);
+
   font-weight: bold;
 }
 
 .help-card h2 {
   margin: 10px 0 4px;
+
   color: white;
+
   font-size: 14px;
 }
 
 .help-card p,
 .sidebar-footer {
   color: #b5cabb;
+
   font-size: 11px;
 }
 
 .text-button {
   padding: 0;
+
   border: 0;
+
   background: transparent;
   color: #d4ebaf;
+
   font-size: 11px;
   font-weight: bold;
 }
@@ -195,32 +309,74 @@ a:focus-visible {
 
 .status-dot {
   display: inline-block;
+
   width: 7px;
   height: 7px;
+
   margin-right: 5px;
+
   border-radius: 50%;
+
   background: #65a25c;
 }
 
-/* Top bar */
+
+/* =========================================================
+   SIDEBAR CLOSE BUTTON
+   ========================================================= */
+
+/*
+   Hidden on desktop.
+   Displayed only on mobile.
+*/
+
+.sidebar-close-button {
+  display: none;
+}
+
+
+/* =========================================================
+   PAGE WRAPPER
+   ========================================================= */
 
 .page-wrapper {
   min-height: 100vh;
+
   margin-left: var(--sidebar);
 }
 
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
 .topbar {
   position: sticky;
+
   top: 0;
-  z-index: 10;
+
+  z-index: 100;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   min-height: 68px;
+
   padding: 0 35px;
+
   border-bottom: 1px solid var(--line);
+
   background: rgba(247, 246, 241, 0.97);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
+
+
+/* =========================================================
+   LOCATION SELECTOR
+   ========================================================= */
 
 .location-selector,
 .topbar-actions,
@@ -236,29 +392,43 @@ a:focus-visible {
 
 .location-icon {
   display: grid;
+
   width: 32px;
   height: 32px;
+
   place-items: center;
+
   border-radius: 50%;
+
   background: var(--green-light);
   color: var(--green);
 }
 
 .location-selector small {
   display: block;
+
   color: var(--muted);
+
   font-size: 10px;
 }
 
 .location-button,
 .icon-button {
   padding: 0;
+
   border: 0;
+
   background: transparent;
   color: var(--text);
+
   font-size: 13px;
   font-weight: bold;
 }
+
+
+/* =========================================================
+   TOPBAR ACTIONS
+   ========================================================= */
 
 .topbar-actions {
   gap: 10px;
@@ -268,78 +438,164 @@ a:focus-visible {
 .notification-button,
 .profile-button {
   min-height: 35px;
+
   border: 1px solid var(--line);
+
   background: white;
   color: var(--text);
 }
 
 .language-button {
   gap: 5px;
+
   padding: 0 9px;
+
   border-radius: 5px;
+
   font-size: 11px;
 }
 
 .notification-button {
   position: relative;
+
   width: 35px;
+
   border-radius: 50%;
 }
 
 .notification-count {
   position: absolute;
+
   top: -5px;
   right: -4px;
+
   display: grid;
+
   width: 16px;
   height: 16px;
+
   place-items: center;
+
   border: 2px solid var(--cream);
   border-radius: 50%;
+
   background: var(--orange);
   color: white;
+
   font-size: 9px;
 }
 
 .profile-button {
   gap: 8px;
+
   padding: 3px 9px 3px 4px;
+
   border-radius: 20px;
+
   font-size: 12px;
   font-weight: bold;
 }
 
 .profile-avatar {
   display: grid;
+
   width: 27px;
   height: 27px;
+
   place-items: center;
+
   border-radius: 50%;
+
   background: #dcebcf;
   color: var(--green);
+
   font-size: 10px;
 }
 
+
+/* =========================================================
+   MOBILE MENU BUTTON
+   ========================================================= */
+
 .mobile-menu-button {
   display: none;
+
+  padding: 6px;
+
+  border: 0;
+
+  background: transparent;
+
+  color: var(--green);
+
+  font-size: 22px;
+
+  line-height: 1;
 }
 
-/* Shared buttons and footer */
+
+/* =========================================================
+   SIDEBAR OVERLAY
+   ========================================================= */
+
+/*
+   Hidden by default.
+   JavaScript adds .is-visible when sidebar opens.
+*/
+
+.sidebar-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 150;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.sidebar-overlay.is-visible {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   SHARED BUTTONS
+   ========================================================= */
 
 .primary-button,
 .secondary-button,
 .small-button {
   border-radius: 5px;
+
   font-size: 11px;
   font-weight: bold;
 }
 
 .primary-button {
   width: 100%;
+
   padding: 11px;
+
   border: 0;
+
   background: var(--green);
   color: white;
+
+  transition: background 0.2s ease;
 }
 
 .primary-button:hover {
@@ -348,185 +604,169 @@ a:focus-visible {
 
 .secondary-button {
   display: inline-block;
+
   padding: 10px 12px;
+
   border: 1px solid var(--green);
+
   background: transparent;
   color: var(--green);
 }
 
+
+/* =========================================================
+   APP FOOTER
+   ========================================================= */
+
 .app-footer {
   display: flex;
   justify-content: space-between;
+
   gap: 15px;
+
   padding: 20px 35px;
+
   border-top: 1px solid var(--line);
+
   color: var(--muted);
+
   font-size: 10px;
 }
 
 .app-footer nav {
   display: flex;
+
   gap: 14px;
 }
 
+
+/* =========================================================
+   PROTOTYPE MESSAGE
+   ========================================================= */
+
 .prototype-message {
   position: fixed;
+
   right: 20px;
   bottom: 20px;
-  z-index: 100;
+
+  z-index: 1000;
+
   max-width: 320px;
+
   padding: 12px 16px;
+
   border-radius: 6px;
+
   background: var(--green);
   color: white;
+
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+
   font-size: 13px;
 }
 
-/* Shared mobile layout */
+
+/* =========================================================
+   MOBILE LAYOUT
+   ========================================================= */
 
 @media (max-width: 900px) {
-  .sidebar {
-    transform: translateX(-100%);
-    transition: transform 0.25s ease;
-  }
 
-  .sidebar.is-open {
-    transform: translateX(0);
-  }
+  /* -------------------------------------------------------
+     PAGE
+     ------------------------------------------------------- */
 
   .page-wrapper {
     margin-left: 0;
   }
 
-  .mobile-menu-button {
-    display: block;
-    border: 0;
-    background: transparent;
-    color: var(--green);
-    font-size: 22px;
-  }
-}
 
-@media (max-width: 600px) {
+  /* -------------------------------------------------------
+     TOPBAR
+     ------------------------------------------------------- */
+
   .topbar {
-    padding: 0 18px;
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    min-height: 64px;
+
+    padding: 0 20px;
   }
 
-  .profile-name,
-  .language-button span,
-  .location-selector small {
-    display: none;
-  }
 
-  .app-footer {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 18px;
-  }
-}
-
-html {
-  scroll-padding-top: 90px;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-@media (max-width: 900px) {
-  .topbar {
-    z-index: 40;
-  }
-
-  .sidebar {
-    z-index: 30;
-    width: min(280px, 82vw);
-  }
-
-  .sidebar.is-open {
-    box-shadow: 15px 0 35px rgba(0, 0, 0, 0.22);
-  }
+  /* -------------------------------------------------------
+     MOBILE MENU
+     ------------------------------------------------------- */
 
   .mobile-menu-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
     position: relative;
-    z-index: 50;
+
+    z-index: 120;
+
+    width: 40px;
+    height: 40px;
   }
-}
-
-/* =========================================================
-   AGROCONNECT AI
-   MOBILE SIDEBAR FIX
-   ========================================================= */
-
-/*
-   Prevent the entire website from moving sideways
-   when the mobile sidebar is opened.
-*/
-html,
-body {
-  overflow-x: hidden;
-}
 
 
-/*
-   The page itself should not scroll horizontally.
-*/
-body {
-  position: relative;
-}
+  /* -------------------------------------------------------
+     SIDEBAR
+     ------------------------------------------------------- */
 
-
-/* =========================================================
-   SIDEBAR OVERLAY
-   ========================================================= */
-
-.sidebar-overlay {
-  display: none;
-}
-
-
-/* =========================================================
-   MOBILE SIDEBAR
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-  /*
-     Keep the sidebar above the page.
-  */
   .sidebar {
     position: fixed;
+
     top: 0;
     left: 0;
 
     width: min(280px, 82vw);
     height: 100vh;
 
-    z-index: 100;
+    padding: 24px 16px 20px;
+
+    z-index: 300;
+
+    overflow-x: hidden;
+    overflow-y: auto;
 
     transform: translateX(-100%);
 
-    transition:
-      transform 0.25s ease;
+    transition: transform 0.25s ease;
 
-    overflow-y: auto;
-    overflow-x: hidden;
+    box-shadow: none;
+
+    /*
+       Prevents accidental horizontal movement
+       while opening/closing.
+    */
+    will-change: transform;
   }
 
 
   /*
-     When JavaScript adds .is-open,
-     the sidebar comes onto the screen.
+     IMPORTANT:
+     JavaScript adds .is-open.
   */
+
   .sidebar.is-open {
     transform: translateX(0);
+
+    box-shadow: 15px 0 35px rgba(0, 0, 0, 0.22);
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      CLOSE BUTTON
-     ======================================================= */
+     ------------------------------------------------------- */
 
   .sidebar-close-button {
     display: flex;
@@ -539,110 +779,152 @@ body {
     top: 16px;
     right: 16px;
 
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
 
-    border: none;
+    padding: 0;
+
+    border: 0;
+
     border-radius: 8px;
 
-    background: whitesmoke;
+    background: rgba(255, 255, 255, 0.95);
 
-    font-size: 30px;
+    color: var(--green-dark);
+
+    font-size: 26px;
+
     line-height: 1;
 
-    cursor: pointer;
-
-    z-index: 110;
+    z-index: 310;
   }
-
 
   .sidebar-close-button:hover {
-    background: rgba(164, 165, 164, 0.06);
+    background: white;
   }
 
 
-  /* =======================================================
+  /* -------------------------------------------------------
      OVERLAY
-     ======================================================= */
+     ------------------------------------------------------- */
 
   .sidebar-overlay {
     display: block;
 
-    position: fixed;
-
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.35);
-
-    z-index: 90;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-      opacity 0.25s ease,
-      visibility 0.25s ease;
+    z-index: 250;
   }
 
 
-  /*
-     Overlay becomes clickable only when
-     sidebar is open.
-  */
-  .sidebar-overlay.is-visible {
-    opacity: 1;
+  /* -------------------------------------------------------
+     BODY LOCK
+     ------------------------------------------------------- */
 
-    visibility: visible;
-
-    pointer-events: auto;
-  }
-
-
-  /* =======================================================
-     TOP BAR
-     ======================================================= */
-
-  .topbar {
-    position: relative;
-    z-index: 80;
-  }
-
-
-  /*
-     Mobile menu button stays above the page.
-  */
-  .mobile-menu-button {
-    position: relative;
-
-    z-index: 85;
-  }
-
-
-  /*
-     Stop the background page from scrolling while
-     mobile navigation is open.
-  */
   body.sidebar-open {
     overflow: hidden;
   }
-
 }
 
 
 /* =========================================================
-   DESKTOP
+   SMALL MOBILE
    ========================================================= */
 
-@media (min-width: 901px) {
+@media (max-width: 600px) {
 
-  /*
-     Close button should never appear on desktop.
-  */
-  .sidebar-close-button {
+  .topbar {
+    padding: 0 16px;
+
+    min-height: 60px;
+  }
+
+  .profile-name {
     display: none;
   }
 
+  .language-button span {
+    display: none;
+  }
+
+  .location-selector small {
+    display: none;
+  }
+
+  .location-selector {
+    gap: 7px;
+  }
+
+  .topbar-actions {
+    gap: 6px;
+  }
+
+  .app-footer {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 18px;
+  }
+
+  .app-footer nav {
+    flex-wrap: wrap;
+  }
+
+  .prototype-message {
+    right: 12px;
+    bottom: 12px;
+
+    left: 12px;
+
+    max-width: none;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .topbar {
+    padding: 0 12px;
+  }
+
+  .mobile-menu-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .location-icon {
+    width: 29px;
+    height: 29px;
+  }
+
+  .notification-button {
+    width: 32px;
+  }
+
+  .profile-avatar {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .sidebar,
+  .sidebar-overlay,
+  .nav-item,
+  .primary-button {
+    transition: none;
+  }
 }

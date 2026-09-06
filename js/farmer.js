@@ -1,85 +1,170 @@
 /* =========================================================
    AGROCONNECT AI — FARMER DASHBOARD
-   Mobile Navigation + Dashboard Interactions
+   Farmer Dashboard JavaScript
 
-   IMPORTANT:
-   This file handles behaviour only.
-   Visual styling stays inside common.css / farmer.css.
+   Handles:
+   1. Mobile sidebar
+   2. Sidebar overlay
+   3. Sidebar close button
+   4. Escape key
+   5. Navigation link closing
+   6. Sticky-header scroll state
+   7. Dashboard prototype interactions
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
   /* =======================================================
-     MOBILE SIDEBAR
+     ELEMENTS
      ======================================================= */
 
+  const body = document.body;
+
   const sidebar = document.querySelector(".sidebar");
+
   const menuButton = document.querySelector(".mobile-menu-button");
+
   const closeButton = document.querySelector(".sidebar-close-button");
+
+  const overlay = document.querySelector(".sidebar-overlay");
+
   const navLinks = document.querySelectorAll(".sidebar-nav a");
 
+  const topbar = document.querySelector(".topbar");
 
-  /* -------------------------------------------------------
-     Create a mobile overlay.
 
-     Why?
-     When the sidebar opens, the user should be able to
-     tap outside it to close it.
+  /* =======================================================
+     SETTINGS
+     ======================================================= */
 
-     This is much easier to understand on mobile than
-     forcing the user to find another menu button.
-     ------------------------------------------------------- */
+  /*
+     This value must match the mobile breakpoint
+     used in your CSS.
+  */
+  const MOBILE_BREAKPOINT = 900;
 
-  let sidebarOverlay = document.querySelector(".sidebar-overlay");
 
-  if (!sidebarOverlay) {
+  /* =======================================================
+     CHECK MOBILE VIEW
+     ======================================================= */
 
-    sidebarOverlay = document.createElement("div");
-
-    sidebarOverlay.className = "sidebar-overlay";
-
-    document.body.appendChild(sidebarOverlay);
+  function isMobileView() {
+    return window.innerWidth <= MOBILE_BREAKPOINT;
   }
 
 
   /* =======================================================
-     OPEN SIDEBAR
+     UPDATE HAMBURGER BUTTON
+     ======================================================= */
+
+  function updateMenuButton(isOpen) {
+
+    if (!menuButton) {
+      return;
+    }
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+
+    menuButton.setAttribute(
+      "aria-label",
+      isOpen
+        ? "Close navigation"
+        : "Open navigation"
+    );
+  }
+
+
+  /* =======================================================
+     SHOW OVERLAY
+     ======================================================= */
+
+  function showOverlay() {
+
+    if (!overlay) {
+      return;
+    }
+
+    overlay.hidden = false;
+
+    overlay.classList.add("is-visible");
+
+    overlay.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+  }
+
+
+  /* =======================================================
+     HIDE OVERLAY
+     ======================================================= */
+
+  function hideOverlay() {
+
+    if (!overlay) {
+      return;
+    }
+
+    overlay.classList.remove("is-visible");
+
+    overlay.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    /*
+      Wait for CSS transition before hiding it.
+      This prevents the closing animation from being
+      cut off immediately.
+    */
+    setTimeout(function () {
+
+      if (!overlay.classList.contains("is-visible")) {
+        overlay.hidden = true;
+      }
+
+    }, 250);
+  }
+
+
+  /* =======================================================
+     OPEN MOBILE SIDEBAR
      ======================================================= */
 
   function openSidebar() {
 
-    if (!sidebar) {
+    /*
+      Do not open the mobile drawer on desktop.
+    */
+    if (!sidebar || !isMobileView()) {
       return;
     }
 
     sidebar.classList.add("is-open");
 
-    sidebarOverlay.classList.add("is-visible");
+    showOverlay();
 
-    if (menuButton) {
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-      menuButton.setAttribute(
-        "aria-label",
-        "Close navigation"
-      );
-
-    }
+    updateMenuButton(true);
 
     /*
-      Prevent the background page from moving while
-      the mobile sidebar is open.
+      Prevent the page behind the sidebar from scrolling.
     */
-    document.body.classList.add("sidebar-open");
+    body.classList.add("sidebar-open");
+
+    /*
+      Move keyboard focus to the close button.
+    */
+    if (closeButton) {
+      closeButton.focus();
+    }
   }
 
 
   /* =======================================================
-     CLOSE SIDEBAR
+     CLOSE MOBILE SIDEBAR
      ======================================================= */
 
   function closeSidebar() {
@@ -90,38 +175,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sidebar.classList.remove("is-open");
 
-    sidebarOverlay.classList.remove("is-visible");
+    hideOverlay();
 
-    if (menuButton) {
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuButton.setAttribute(
-        "aria-label",
-        "Open navigation"
-      );
-
-    }
+    updateMenuButton(false);
 
     /*
-      Give scrolling back to the page.
+      Allow the page to scroll again.
     */
-    document.body.classList.remove("sidebar-open");
+    body.classList.remove("sidebar-open");
   }
 
 
   /* =======================================================
-     OPEN BUTTON
+     TOGGLE SIDEBAR
+     ======================================================= */
+
+  function toggleSidebar() {
+
+    if (!sidebar || !isMobileView()) {
+      return;
+    }
+
+    if (sidebar.classList.contains("is-open")) {
+
+      closeSidebar();
+
+    } else {
+
+      openSidebar();
+
+    }
+  }
+
+
+  /* =======================================================
+     HAMBURGER BUTTON
      ======================================================= */
 
   if (menuButton) {
 
     menuButton.addEventListener(
       "click",
-      openSidebar
+      toggleSidebar
     );
 
   }
@@ -142,24 +237,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     CLICK OUTSIDE SIDEBAR
+     OVERLAY CLICK
      ======================================================= */
 
-  sidebarOverlay.addEventListener(
-    "click",
-    closeSidebar
-  );
+  if (overlay) {
+
+    overlay.addEventListener(
+      "click",
+      closeSidebar
+    );
+
+  }
 
 
   /* =======================================================
-     CLOSE WHEN A NAVIGATION LINK IS SELECTED
+     SIDEBAR NAVIGATION
      ======================================================= */
 
-  navLinks.forEach((link) => {
+  navLinks.forEach(function (link) {
 
     link.addEventListener(
       "click",
-      closeSidebar
+      function () {
+
+        /*
+          Close drawer after selecting a section
+          on mobile.
+        */
+        if (isMobileView()) {
+
+          closeSidebar();
+
+        }
+
+      }
     );
 
   });
@@ -171,9 +282,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.addEventListener(
     "keydown",
-    (event) => {
+    function (event) {
 
-      if (event.key === "Escape") {
+      if (
+        event.key === "Escape" &&
+        sidebar &&
+        sidebar.classList.contains("is-open")
+      ) {
+
+        closeSidebar();
+
+        /*
+          Return focus to hamburger.
+        */
+        if (menuButton) {
+          menuButton.focus();
+        }
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     WINDOW RESIZE
+     ======================================================= */
+
+  window.addEventListener(
+    "resize",
+    function () {
+
+      /*
+        If user rotates phone or expands browser,
+        make sure mobile menu does not remain stuck open.
+      */
+      if (
+        window.innerWidth > MOBILE_BREAKPOINT &&
+        sidebar &&
+        sidebar.classList.contains("is-open")
+      ) {
 
         closeSidebar();
 
@@ -184,67 +332,95 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =======================================================
-     RESPONSIVE SAFETY
-     
-     If the browser is resized from mobile to desktop,
-     remove the mobile-open state.
+     STICKY HEADER SCROLL STATE
      ======================================================= */
 
-  window.addEventListener(
-    "resize",
-    () => {
+  /*
+    CSS will make the header actually sticky.
 
-      if (window.innerWidth > 900) {
+    This JavaScript only adds/removes "is-scrolled"
+    so CSS can add a shadow or visual separation.
+  */
 
-        closeSidebar();
+  if (topbar) {
+
+    function updateHeader() {
+
+      if (window.scrollY > 5) {
+
+        topbar.classList.add("is-scrolled");
+
+      } else {
+
+        topbar.classList.remove("is-scrolled");
 
       }
 
     }
-  );
+
+    updateHeader();
+
+    window.addEventListener(
+      "scroll",
+      updateHeader,
+      {
+        passive: true
+      }
+    );
+
+  }
 
 
   /* =======================================================
      MARKET PRICE FILTERS
      ======================================================= */
 
-  document
-    .querySelectorAll(".filter-button")
-    .forEach((button) => {
+  const filterButtons =
+    document.querySelectorAll(".filter-button");
 
-      button.addEventListener(
-        "click",
-        () => {
+  filterButtons.forEach(function (button) {
 
-          document
-            .querySelectorAll(".filter-button")
-            .forEach((item) => {
+    button.addEventListener(
+      "click",
+      function () {
 
-              item.classList.remove("active");
+        /*
+          Remove active state from all filters.
+        */
+        filterButtons.forEach(function (item) {
 
-            });
+          item.classList.remove("active");
 
-          button.classList.add("active");
+        });
 
-          showMessage(
-            `${button.textContent.trim()} price view selected.`
-          );
+        /*
+          Activate selected filter.
+        */
+        button.classList.add("active");
 
-        }
-      );
+        showMessage(
+          button.textContent.trim() +
+          " price view selected."
+        );
 
-    });
+      }
+    );
+
+  });
 
 
   /* =======================================================
-     NET REALIZATION CALCULATOR
+     OPEN CALCULATOR
      ======================================================= */
 
-  document
-    .querySelector("#open-calculator")
-    ?.addEventListener(
+  const calculatorButton =
+    document.querySelector("#open-calculator");
+
+  if (calculatorButton) {
+
+    calculatorButton.addEventListener(
       "click",
-      () => {
+      function () {
 
         showMessage(
           "Net-realization calculator will open here."
@@ -253,20 +429,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
 
+  }
+
 
   /* =======================================================
      FPO JOIN BUTTON
      ======================================================= */
 
-  document
-    .querySelector(".small-button")
-    ?.addEventListener(
+  const joinButton =
+    document.querySelector(".small-button");
+
+  if (joinButton) {
+
+    joinButton.addEventListener(
       "click",
-      (event) => {
+      function () {
 
-        event.target.textContent = "Request sent";
+        joinButton.textContent =
+          "Request sent";
 
-        event.target.disabled = true;
+        joinButton.disabled = true;
 
         showMessage(
           "Your FPO aggregation request has been recorded."
@@ -275,61 +457,295 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
 
+  }
+
 
   /* =======================================================
      TABLE ACTIONS
      ======================================================= */
 
-  document
-    .querySelectorAll(".table-action")
-    .forEach((button) => {
+  const tableActions =
+    document.querySelectorAll(".table-action");
 
-      button.addEventListener(
-        "click",
-        () => {
+  tableActions.forEach(function (button) {
 
-          showMessage(
-            `${button.textContent.trim()} flow will open next.`
-          );
+    button.addEventListener(
+      "click",
+      function () {
 
-        }
-      );
+        showMessage(
+          button.textContent.trim() +
+          " flow will open next."
+        );
 
-    });
+      }
+    );
+
+  });
+
+
+  /* =======================================================
+     LOCATION BUTTON
+     ======================================================= */
+
+  const locationButton =
+    document.querySelector(".location-button");
+
+  if (locationButton) {
+
+    locationButton.addEventListener(
+      "click",
+      function () {
+
+        showMessage(
+          "Location selection will open here."
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     LANGUAGE BUTTON
+     ======================================================= */
+
+  const languageButton =
+    document.querySelector(".language-button");
+
+  if (languageButton) {
+
+    languageButton.addEventListener(
+      "click",
+      function () {
+
+        showMessage(
+          "Language options will open here."
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     NOTIFICATION BUTTON
+     ======================================================= */
+
+  const notificationButton =
+    document.querySelector(".notification-button");
+
+  if (notificationButton) {
+
+    notificationButton.addEventListener(
+      "click",
+      function () {
+
+        showMessage(
+          "Your notifications will open here."
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     PROFILE BUTTON
+     ======================================================= */
+
+  const profileButton =
+    document.querySelector(".profile-button");
+
+  if (profileButton) {
+
+    profileButton.addEventListener(
+      "click",
+      function () {
+
+        showMessage(
+          "Profile menu will open here."
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     CHANGE CROP BUTTON
+     ======================================================= */
+
+  const changeCropButton =
+    document.querySelector(".button-reset");
+
+  if (changeCropButton) {
+
+    changeCropButton.addEventListener(
+      "click",
+      function () {
+
+        showMessage(
+          "Crop selection will open here."
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     ASSISTANCE BUTTON
+     ======================================================= */
+
+  const assistanceButton =
+    document.querySelector(".text-button");
+
+  if (assistanceButton) {
+
+    assistanceButton.addEventListener(
+      "click",
+      function () {
+
+        showMessage(
+          "WhatsApp, SMS and IVR access options will open here."
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     LOT ACTION BUTTON
+     ======================================================= */
+
+  const lotActionButton =
+    document.querySelector(".icon-button");
+
+  if (lotActionButton) {
+
+    lotActionButton.addEventListener(
+      "click",
+      function () {
+
+        showMessage(
+          "Lot actions will open here."
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     REVIEW OFFER BUTTON
+     ======================================================= */
+
+  const reviewOfferButton =
+    document.querySelector(
+      ".transaction-preview-footer button"
+    );
+
+  if (reviewOfferButton) {
+
+    reviewOfferButton.addEventListener(
+      "click",
+      function () {
+
+        showMessage(
+          "Offer review will open here."
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     INITIAL MENU STATE
+     ======================================================= */
+
+  updateMenuButton(false);
 
 });
 
 
 /* =========================================================
-   SIMPLE PROTOTYPE MESSAGE
+   PROTOTYPE MESSAGE
    ========================================================= */
 
 function showMessage(message) {
 
-  document
-    .querySelector(".prototype-message")
-    ?.remove();
+  /*
+    Remove an existing message first.
+  */
+  const oldMessage =
+    document.querySelector(".prototype-message");
 
+  if (oldMessage) {
+    oldMessage.remove();
+  }
+
+
+  /* -------------------------------------------------------
+     CREATE MESSAGE
+     ------------------------------------------------------- */
 
   const messageBox =
     document.createElement("div");
 
 
+  /* -------------------------------------------------------
+     MESSAGE SETTINGS
+     ------------------------------------------------------- */
+
   messageBox.className =
     "prototype-message";
 
+  messageBox.setAttribute(
+    "role",
+    "status"
+  );
+
+  messageBox.setAttribute(
+    "aria-live",
+    "polite"
+  );
 
   messageBox.textContent =
     message;
 
+
+  /* -------------------------------------------------------
+     ADD TO PAGE
+     ------------------------------------------------------- */
 
   document.body.appendChild(
     messageBox
   );
 
 
-  setTimeout(
-    () => messageBox.remove(),
+  /* -------------------------------------------------------
+     REMOVE AFTER 3 SECONDS
+     ------------------------------------------------------- */
+
+  window.setTimeout(
+    function () {
+
+      if (messageBox) {
+        messageBox.remove();
+      }
+
+    },
     3000
   );
 
