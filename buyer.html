@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Buyer Dashboard | AgroConnect</title>
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/buyer.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to dashboard content</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Buyer navigation">
+      <div class="brand-area">
+        <a class="brand" href="index.html">
+          <span class="brand-icon">✦</span>
+          <span><strong>AgroConnect</strong></span>
+        </a>
+
+        <p class="brand-tagline">Trusted agricultural sourcing.</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item active" href="#buyer-dashboard">
+          <span>⌂</span>
+          Dashboard
+        </a>
+
+        <a class="nav-item" href="#demand-board">
+          <span>＋</span>
+          Post Demand
+        </a>
+
+        <a class="nav-item" href="#bulk-lots">
+          <span>▦</span>
+          Browse Bulk Lots
+        </a>
+
+        <a class="nav-item" href="#offers">
+          <span>⇄</span>
+          My Offers
+        </a>
+
+        <a class="nav-item" href="#orders">
+          <span>✓</span>
+          Orders & Payments
+        </a>
+
+        <a class="nav-item" href="#quality">
+          <span>◈</span>
+          Quality Standards
+        </a>
+      </nav>
+
+      <section class="help-card">
+        <span class="help-icon">?</span>
+        <h2>Buyer support</h2>
+        <p>Need help with sourcing or verification?</p>
+        <button class="text-button" type="button">Contact support →</button>
+      </section>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        Demo prototype · Maharashtra pilot
+      </div>
+    </aside>
+
+    <div class="page-wrapper">
+      <header class="topbar">
+        <button class="mobile-menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+          ☰
+        </button>
+
+        <div class="location-selector">
+          <span class="location-icon">⌖</span>
+
+          <div>
+            <small>Sourcing region</small>
+
+            <button class="location-button" type="button">
+              Maharashtra
+              <span>⌄</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="language-button" type="button">
+            अ / A
+            <span>English</span>
+          </button>
+
+          <button class="notification-button" type="button" aria-label="View 3 notifications">
+            ♧
+            <span class="notification-count">3</span>
+          </button>
+
+          <button class="profile-button" type="button">
+            <span class="profile-avatar">SK</span>
+            <span class="profile-name">Sahyadri Kitchens</span>
+            <span>⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="main-content" class="buyer-content">
+        <section id="buyer-dashboard" class="buyer-welcome">
+          <div>
+            <p class="eyebrow">Processor dashboard</p>
+            <h1>Welcome, Sahyadri Kitchens.</h1>
+            <p>
+              Find reliable FPO bulk lots, post procurement demand,
+              and manage every offer in one place.
+            </p>
+          </div>
+
+          <div class="data-status">
+            <span class="status-dot"></span>
+            Demo market data · Updated today, 8:30 AM
+          </div>
+        </section>
+
+        <section class="buyer-summary-grid" aria-label="Buyer summary">
+          <article class="buyer-summary-card">
+            <span class="summary-icon">▦</span>
+            <div>
+              <strong>12</strong>
+              <span>Matching bulk lots</span>
+            </div>
+          </article>
+
+          <article class="buyer-summary-card">
+            <span class="summary-icon">⇄</span>
+            <div>
+              <strong>4</strong>
+              <span>Active offers</span>
+            </div>
+          </article>
+
+          <article class="buyer-summary-card">
+            <span class="summary-icon">✓</span>
+            <div>
+              <strong>2</strong>
+              <span>Orders in transit</span>
+            </div>
+          </article>
+
+          <article class="buyer-summary-card trust-card">
+            <span class="summary-icon">★</span>
+            <div>
+              <strong>4.7 / 5</strong>
+              <span>Your reliability score</span>
+            </div>
+          </article>
+        </section>
+
+        <section id="demand-board" class="buyer-section" aria-labelledby="demand-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Buyer demand board</p>
+              <h2 id="demand-title">Post a sourcing requirement</h2>
+            </div>
+
+            <button class="section-link button-reset" type="button">
+              View all demand posts →
+            </button>
+          </div>
+
+          <form class="demand-form" id="demand-form">
+            <div class="form-field">
+              <label for="crop">Crop</label>
+              <select id="crop" required>
+                <option value="">Select crop</option>
+                <option>Cotton</option>
+                <option>Rice</option>
+                <option>Sugarcane</option>
+                <option>Tur Dal</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="quantity">Quantity required</label>
+              <input id="quantity" type="number" placeholder="Example: 50">
+            </div>
+
+            <div class="form-field">
+              <label for="quality-grade">Minimum quality</label>
+              <select id="quality-grade">
+                <option>FPO verified</option>
+                <option>AI photo estimated</option>
+                <option>Self-declared</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="delivery-location">Delivery location</label>
+              <input id="delivery-location" type="text" placeholder="Example: Pune">
+            </div>
+
+            <div class="form-field">
+              <label for="required-date">Required by</label>
+              <input id="required-date" type="date">
+            </div>
+
+            <button class="post-demand-button" type="submit">
+              Post requirement
+            </button>
+          </form>
+        </section>
+
+        <section id="bulk-lots" class="buyer-section" aria-labelledby="lots-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Verified supply</p>
+              <h2 id="lots-title">FPO bulk lots matching your needs</h2>
+            </div>
+
+            <div class="table-filters">
+              <button class="filter-button active" type="button">Best match</button>
+              <button class="filter-button" type="button">Nearest first</button>
+              <button class="filter-button" type="button">Quality verified</button>
+            </div>
+          </div>
+
+          <div class="bulk-lot-grid">
+            <article class="bulk-lot-card featured-lot">
+              <div class="bulk-lot-top">
+                <span class="crop-badge cotton">Cotton</span>
+                <span class="match-label">96% match</span>
+              </div>
+
+              <h3>Baramati Farmers FPO</h3>
+              <p class="lot-details">42 quintals · Baramati, Pune</p>
+
+              <div class="quality-row">
+                <span>Quality trust level</span>
+                <strong>FPO verified · Level 3</strong>
+              </div>
+
+              <div class="quality-progress">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div class="bulk-lot-price">
+                <span>Expected price</span>
+                <strong>₹7,340 / qtl</strong>
+              </div>
+
+              <div class="bulk-lot-footer">
+                <span>Collection ready in 2 days</span>
+                <button class="offer-button" type="button">Send offer</button>
+              </div>
+            </article>
+
+            <article class="bulk-lot-card">
+              <div class="bulk-lot-top">
+                <span class="crop-badge rice">Rice</span>
+                <span class="match-label">89% match</span>
+              </div>
+
+              <h3>Indapur Agro FPO</h3>
+              <p class="lot-details">65 quintals · Indapur, Pune</p>
+
+              <div class="quality-row">
+                <span>Quality trust level</span>
+                <strong>AI photo estimated · Level 2</strong>
+              </div>
+
+              <div class="quality-progress level-two-progress">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div class="bulk-lot-price">
+                <span>Expected price</span>
+                <strong>₹2,420 / qtl</strong>
+              </div>
+
+              <div class="bulk-lot-footer">
+                <span>Collection ready in 4 days</span>
+                <button class="offer-button" type="button">View lot</button>
+              </div>
+            </article>
+
+            <article class="bulk-lot-card">
+              <div class="bulk-lot-top">
+                <span class="crop-badge cotton">Cotton</span>
+                <span class="match-label">82% match</span>
+              </div>
+
+              <h3>Daund Krushi FPO</h3>
+              <p class="lot-details">58 quintals · Daund, Pune</p>
+
+              <div class="quality-row">
+                <span>Quality trust level</span>
+                <strong>FPO verified · Level 3</strong>
+              </div>
+
+              <div class="quality-progress">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+
+              <div class="bulk-lot-price">
+                <span>Expected price</span>
+                <strong>₹7,290 / qtl</strong>
+              </div>
+
+              <div class="bulk-lot-footer">
+                <span>Collection ready in 3 days</span>
+                <button class="offer-button" type="button">Send offer</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="offers" class="buyer-section" aria-labelledby="offer-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Offer management</p>
+              <h2 id="offer-title">Your active offers</h2>
+            </div>
+
+            <a class="section-link" href="#all-offers">View all offers →</a>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <caption>Active purchase offers submitted by this buyer.</caption>
+
+              <thead>
+                <tr>
+                  <th>FPO / Supplier</th>
+                  <th>Crop lot</th>
+                  <th>Your offer</th>
+                  <th>Quality</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Baramati Farmers FPO</strong>
+                    <span class="table-subtext">Buyer-ready bulk lot</span>
+                  </td>
+
+                  <td>42 qtl cotton</td>
+                  <td>₹7,310 / qtl</td>
+                  <td><span class="quality-badge verified">Level 3 verified</span></td>
+                  <td><span class="offer-status pending">Awaiting response</span></td>
+                  <td><button class="table-action" type="button">Update offer</button></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Indapur Agro FPO</strong>
+                    <span class="table-subtext">Buyer-ready bulk lot</span>
+                  </td>
+
+                  <td>65 qtl rice</td>
+                  <td>₹2,390 / qtl</td>
+                  <td><span class="quality-badge estimated">Level 2 estimated</span></td>
+                  <td><span class="offer-status accepted">Accepted</span></td>
+                  <td><button class="table-action" type="button">View order</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="orders" class="buyer-section order-section" aria-labelledby="order-title">
+          <div class="order-copy">
+            <p class="eyebrow">Payments and delivery</p>
+            <h2 id="order-title">Track every transaction with confidence.</h2>
+            <p>
+              Each accepted offer keeps the FPO, lot details, transport status,
+              UPI payment record, delivery confirmation and dispute option together.
+            </p>
+
+            <button class="secondary-button" type="button">
+              Open order tracking →
+            </button>
+          </div>
+
+          <article class="order-preview">
+            <div class="order-preview-top">
+              <span class="offer-status accepted">Order accepted</span>
+              <span class="reliability-score">★ 4.8 FPO reliability</span>
+            </div>
+
+            <h3>Indapur Agro FPO</h3>
+            <p>65 qtl rice · Delivery to Pune facility</p>
+
+            <div class="order-steps">
+              <span class="completed">Offer accepted</span>
+              <span class="completed">UPI advance received</span>
+              <span class="current">Transport scheduled</span>
+              <span>Delivery confirmation</span>
+            </div>
+
+            <div class="order-preview-footer">
+              <span>Expected delivery: 10 Sept</span>
+              <button type="button">View order</button>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>AgroConnect · Smart India Hackathon 2026 Prototype</span>
+
+        <nav>
+          <a href="#accessibility">Accessibility</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#support">Help & Support</a>
+        </nav>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/buyer.js"></script>
+</body>
+</html>

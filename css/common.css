@@ -425,3 +425,224 @@ a:focus-visible {
     padding: 18px;
   }
 }
+
+html {
+  scroll-padding-top: 90px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    z-index: 40;
+  }
+
+  .sidebar {
+    z-index: 30;
+    width: min(280px, 82vw);
+  }
+
+  .sidebar.is-open {
+    box-shadow: 15px 0 35px rgba(0, 0, 0, 0.22);
+  }
+
+  .mobile-menu-button {
+    position: relative;
+    z-index: 50;
+  }
+}
+
+/* =========================================================
+   AGROCONNECT AI
+   MOBILE SIDEBAR FIX
+   ========================================================= */
+
+/*
+   Prevent the entire website from moving sideways
+   when the mobile sidebar is opened.
+*/
+html,
+body {
+  overflow-x: hidden;
+}
+
+
+/*
+   The page itself should not scroll horizontally.
+*/
+body {
+  position: relative;
+}
+
+
+/* =========================================================
+   SIDEBAR OVERLAY
+   ========================================================= */
+
+.sidebar-overlay {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  /*
+     Keep the sidebar above the page.
+  */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: min(280px, 82vw);
+    height: 100vh;
+
+    z-index: 100;
+
+    transform: translateX(-100%);
+
+    transition:
+      transform 0.25s ease;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+
+  /*
+     When JavaScript adds .is-open,
+     the sidebar comes onto the screen.
+  */
+  .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+
+  /* =======================================================
+     CLOSE BUTTON
+     ======================================================= */
+
+  .sidebar-close-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: whitesmoke;
+
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 110;
+  }
+
+
+  .sidebar-close-button:hover {
+    background: rgba(164, 165, 164, 0.06);
+  }
+
+
+  /* =======================================================
+     OVERLAY
+     ======================================================= */
+
+  .sidebar-overlay {
+    display: block;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    z-index: 90;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+
+  /*
+     Overlay becomes clickable only when
+     sidebar is open.
+  */
+  .sidebar-overlay.is-visible {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+  }
+
+
+  /* =======================================================
+     TOP BAR
+     ======================================================= */
+
+  .topbar {
+    position: relative;
+    z-index: 80;
+  }
+
+
+  /*
+     Mobile menu button stays above the page.
+  */
+  .mobile-menu-button {
+    position: relative;
+
+    z-index: 85;
+  }
+
+
+  /*
+     Stop the background page from scrolling while
+     mobile navigation is open.
+  */
+  body.sidebar-open {
+    overflow: hidden;
+  }
+
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+  /*
+     Close button should never appear on desktop.
+  */
+  .sidebar-close-button {
+    display: none;
+  }
+
+}
