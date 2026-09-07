@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Transporter Dashboard | AgroConnect</title>
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/transport.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to dashboard content</a>
+
+  <div class="app-shell">
+    <aside id="mobile-sidebar" class="sidebar" aria-label="Transporter navigation">
+      <button class="sidebar-close-button" type="button" aria-label="Close navigation">
+        ×
+      </button>
+
+      <div class="brand-area">
+        <a class="brand" href="index.html">
+          <span class="brand-icon">✦</span>
+          <span><strong>AgroConnect</strong></span>
+        </a>
+
+        <p class="brand-tagline">Better loads. Fewer empty return trips.</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item active" href="#transporter-dashboard">
+          <span>⌂</span>
+          Dashboard
+        </a>
+
+        <a class="nav-item" href="#vehicle">
+          <span>▣</span>
+          My Vehicle
+        </a>
+
+        <a class="nav-item" href="#load-requests">
+          <span>▦</span>
+          Load Requests
+        </a>
+
+        <a class="nav-item" href="#route-match">
+          <span>⌖</span>
+          Route Match
+        </a>
+
+        <a class="nav-item" href="#deliveries">
+          <span>✓</span>
+          Deliveries
+        </a>
+
+        <a class="nav-item" href="#earnings">
+          <span>₹</span>
+          Earnings
+        </a>
+      </nav>
+
+      <section class="help-card">
+        <span class="help-icon">?</span>
+        <h2>Transport support</h2>
+        <p>Need help with a pickup, route or payment?</p>
+        <button class="text-button" type="button">Contact support →</button>
+      </section>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        Demo prototype · Maharashtra pilot
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" aria-hidden="true" hidden></div>
+
+    <div class="page-wrapper">
+      <header class="topbar">
+        <button
+          class="mobile-menu-button"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobile-sidebar"
+        >
+          ☰
+        </button>
+
+        <div class="location-selector">
+          <span class="location-icon">⌖</span>
+
+          <div>
+            <small>Current location</small>
+
+            <button class="location-button" type="button">
+              Baramati, Pune, Maharashtra
+              <span>⌄</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="language-button" type="button">
+            अ / A
+            <span>मराठी</span>
+          </button>
+
+          <button class="notification-button" type="button" aria-label="View 2 notifications">
+            ♧
+            <span class="notification-count">2</span>
+          </button>
+
+          <button class="profile-button" type="button">
+            <span class="profile-avatar">RJ</span>
+            <span class="profile-name">Rajesh Jadhav Transport</span>
+            <span>⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="main-content" class="transporter-content">
+        <section id="transporter-dashboard" class="transporter-welcome">
+          <div>
+            <p class="eyebrow">Transporter dashboard</p>
+            <h1>Welcome, Rajesh.</h1>
+            <p>
+              Find nearby FPO loads, fill available vehicle capacity,
+              and track pickup, delivery and payment in one place.
+            </p>
+          </div>
+
+          <div class="data-status">
+            <span class="status-dot"></span>
+            Demo transport data · Updated today, 8:30 AM
+          </div>
+        </section>
+
+        <section class="transport-summary-grid" aria-label="Transport summary">
+          <article class="transport-summary-card">
+            <span class="summary-icon">▣</span>
+            <div>
+              <strong>1</strong>
+              <span>Vehicle available today</span>
+            </div>
+          </article>
+
+          <article class="transport-summary-card">
+            <span class="summary-icon">▦</span>
+            <div>
+              <strong>4</strong>
+              <span>Nearby load requests</span>
+            </div>
+          </article>
+
+          <article class="transport-summary-card">
+            <span class="summary-icon">⌖</span>
+            <div>
+              <strong>1</strong>
+              <span>Best backhaul match</span>
+            </div>
+          </article>
+
+          <article class="transport-summary-card earnings-summary">
+            <span class="summary-icon">₹</span>
+            <div>
+              <strong>₹4,850</strong>
+              <span>Expected trip earnings</span>
+            </div>
+          </article>
+        </section>
+
+        <section id="vehicle" class="transporter-section vehicle-section">
+          <div class="vehicle-copy">
+            <p class="eyebrow">Available vehicle</p>
+            <h2>Keep your vehicle visible to nearby FPOs.</h2>
+            <p>
+              Share an available trip or return journey.
+              You remain in control of every request you accept.
+            </p>
+          </div>
+
+          <article class="vehicle-card">
+            <div class="vehicle-card-top">
+              <span class="vehicle-badge">Available today</span>
+              <span class="vehicle-number">MH 12 AB 4821</span>
+            </div>
+
+            <h3>Tata 407 · Open body</h3>
+            <p>Maximum capacity: 5 tonnes</p>
+
+            <div class="vehicle-details">
+              <div>
+                <span>Route</span>
+                <strong>Baramati → Pune</strong>
+              </div>
+
+              <div>
+                <span>Available from</span>
+                <strong>8 Sept · 9:00 AM</strong>
+              </div>
+            </div>
+
+            <button class="edit-trip-button" type="button">
+              Edit available trip
+            </button>
+          </article>
+        </section>
+
+        <section id="load-requests" class="transporter-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Nearby FPO and farmer loads</p>
+              <h2>Load requests matching your capacity</h2>
+            </div>
+
+            <div class="table-filters">
+              <button class="filter-button active" type="button">Best match</button>
+              <button class="filter-button" type="button">Nearest pickup</button>
+              <button class="filter-button" type="button">Highest earnings</button>
+            </div>
+          </div>
+
+          <div class="load-grid">
+            <article class="load-card featured-load">
+              <div class="load-card-top">
+                <span class="crop-badge cotton">Cotton</span>
+                <span class="match-label">96% route match</span>
+              </div>
+
+              <h3>Baramati Farmers FPO</h3>
+              <p>Bulk lot: 42 quintals cotton</p>
+
+              <div class="load-route">
+                <span>Pickup: Baramati FPO Centre</span>
+                <b>→</b>
+                <span>Delivery: Pune facility</span>
+              </div>
+
+              <div class="load-stats">
+                <div>
+                  <strong>92 km</strong>
+                  <span>Route distance</span>
+                </div>
+
+                <div>
+                  <strong>4.2 t</strong>
+                  <span>Required capacity</span>
+                </div>
+
+                <div>
+                  <strong>₹4,850</strong>
+                  <span>Transport offer</span>
+                </div>
+              </div>
+
+              <button class="accept-load-button" type="button">
+                Accept load request
+              </button>
+            </article>
+
+            <article class="load-card">
+              <div class="load-card-top">
+                <span class="crop-badge rice">Rice</span>
+                <span class="match-label">84% route match</span>
+              </div>
+
+              <h3>Indapur Agro FPO</h3>
+              <p>Bulk lot: 30 quintals rice</p>
+
+              <div class="load-route">
+                <span>Pickup: Indapur</span>
+                <b>→</b>
+                <span>Delivery: Pune facility</span>
+              </div>
+
+              <div class="load-stats">
+                <div>
+                  <strong>118 km</strong>
+                  <span>Route distance</span>
+                </div>
+
+                <div>
+                  <strong>3 t</strong>
+                  <span>Required capacity</span>
+                </div>
+
+                <div>
+                  <strong>₹4,420</strong>
+                  <span>Transport offer</span>
+                </div>
+              </div>
+
+              <button class="view-load-button" type="button">
+                View request
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <section id="route-match" class="transporter-section route-section">
+          <div class="route-copy">
+            <p class="eyebrow">Route and backhaul match</p>
+            <h2>One trip. Full vehicle. Clear route.</h2>
+            <p>
+              AgroConnect matches nearby crop loads with your available route
+              and capacity. It suggests; you accept or reject the trip.
+            </p>
+
+            <div class="route-summary">
+              <span class="route-match-icon">✓</span>
+              <div>
+                <strong>Best route match found</strong>
+                <p>Baramati Farmers FPO → Sahyadri Kitchens, Pune</p>
+              </div>
+            </div>
+          </div>
+
+          <article class="route-map-card" aria-label="Demo route map from Baramati to Pune">
+            <div class="map-header">
+              <span>Demo route view</span>
+              <strong>92 km · approx. 2 hr 30 min</strong>
+            </div>
+
+            <div class="route-map">
+              <span class="map-point point-one">Baramati FPO</span>
+              <span class="map-point point-two">Indapur junction</span>
+              <span class="map-point point-three">Pune buyer</span>
+              <span class="map-line"></span>
+              <span class="map-vehicle">▣</span>
+            </div>
+
+            <div class="map-footer">
+              <span>Pickup 9:00 AM</span>
+              <span>Delivery 11:30 AM</span>
+            </div>
+          </article>
+        </section>
+
+        <section id="deliveries" class="transporter-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Delivery tracking</p>
+              <h2>Active and completed trips</h2>
+            </div>
+
+            <a class="section-link" href="#trip-history">View trip history →</a>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <caption>Current transport trips and payment status.</caption>
+
+              <thead>
+                <tr>
+                  <th>Load</th>
+                  <th>Route</th>
+                  <th>Pickup time</th>
+                  <th>Status</th>
+                  <th>Payment</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Indapur Agro FPO</strong>
+                    <span class="table-subtext">30 qtl rice</span>
+                  </td>
+
+                  <td>Indapur → Pune</td>
+                  <td>7 Sept · 10:00 AM</td>
+                  <td><span class="trip-status transit">In transit</span></td>
+                  <td><span class="payment-badge pending">UPI after delivery</span></td>
+                  <td><button class="table-action" type="button">Update trip</button></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Daund Krushi FPO</strong>
+                    <span class="table-subtext">25 qtl cotton</span>
+                  </td>
+
+                  <td>Daund → Pune</td>
+                  <td>5 Sept · 9:30 AM</td>
+                  <td><span class="trip-status complete">Delivered</span></td>
+                  <td><span class="payment-badge paid">UPI received</span></td>
+                  <td><button class="table-action" type="button">View record</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="earnings" class="transporter-section earnings-section">
+          <div class="earnings-copy">
+            <p class="eyebrow">Transparent earnings</p>
+            <h2>Know the trip amount before you accept.</h2>
+            <p>
+              Each completed delivery retains a route, pickup, delivery proof
+              and payment record for transparency and dispute support.
+            </p>
+
+            <button class="secondary-button" type="button">
+              View earnings history →
+            </button>
+          </div>
+
+          <article class="earnings-card">
+            <span class="payment-badge paid">Last payment received</span>
+            <h3>Daund Krushi FPO delivery</h3>
+            <p>Daund → Pune · 5 Sept</p>
+
+            <div class="earnings-card-footer">
+              <strong>₹3,950</strong>
+              <button type="button">View payment</button>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>AgroConnect · Smart India Hackathon 2026 Prototype</span>
+
+        <nav>
+          <a href="#accessibility">Accessibility</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#support">Help & Support</a>
+        </nav>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/transporter.js"></script>
+</body>
+</html>

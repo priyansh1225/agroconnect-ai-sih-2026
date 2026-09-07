@@ -1208,6 +1208,11 @@ td strong,
 
 /* Keep Farmer header visible while the dashboard scrolls */
 
+/* =========================================================
+   FARMER DASHBOARD - FIXED TOP HEADER
+   ========================================================= */
+
+/* Desktop */
 .page-wrapper {
   padding-top: 68px;
 }
@@ -1217,23 +1222,51 @@ td strong,
   top: 0;
   right: 0;
   left: var(--sidebar);
-  z-index: 100;
+
   width: auto;
+  min-height: 68px;
+
+  z-index: 200;
 }
 
+
+/* =========================================================
+   MOBILE FIXED HEADER
+   ========================================================= */
+
 @media (max-width: 900px) {
+
   .page-wrapper {
-    padding-top: 68px;
+    margin-left: 0;
+    padding-top: 64px;
   }
 
   .topbar {
+    position: fixed;
+
+    top: 0;
     left: 0;
-    z-index: 100;
+    right: 0;
+
+    width: 100%;
+    min-height: 64px;
+
+    z-index: 200;
   }
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 600px) {
+
   .page-wrapper {
     padding-top: 60px;
+  }
+
+  .topbar {
+    min-height: 60px;
   }
 }

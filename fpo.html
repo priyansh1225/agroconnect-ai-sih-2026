@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FPO Dashboard | AgroConnect</title>
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/fpo.css">
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to dashboard content</a>
+
+  <div class="app-shell">
+    <aside id="mobile-sidebar" class="sidebar" aria-label="FPO navigation">
+      <button class="sidebar-close-button" type="button" aria-label="Close navigation">
+        ×
+      </button>
+
+      <div class="brand-area">
+        <a class="brand" href="index.html">
+          <span class="brand-icon">✦</span>
+          <span><strong>AgroConnect</strong></span>
+        </a>
+
+        <p class="brand-tagline">Aggregation for better market access.</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-item active" href="#fpo-dashboard">
+          <span>⌂</span>
+          Dashboard
+        </a>
+
+        <a class="nav-item" href="#member-lots">
+          <span>▦</span>
+          Member Lots
+        </a>
+
+        <a class="nav-item" href="#aggregation">
+          <span>⊕</span>
+          Bulk Aggregation
+        </a>
+
+        <a class="nav-item" href="#buyer-demand">
+          <span>⇄</span>
+          Buyer Demand
+        </a>
+
+        <a class="nav-item" href="#quality-check">
+          <span>◈</span>
+          Quality Verification
+        </a>
+
+        <a class="nav-item" href="#collection">
+          <span>⌖</span>
+          Collection & Transport
+        </a>
+
+        <a class="nav-item" href="#payments">
+          <span>₹</span>
+          Payments
+        </a>
+      </nav>
+
+      <section class="help-card">
+        <span class="help-icon">?</span>
+        <h2>FPO support</h2>
+        <p>Need help with lot verification or buyer demand?</p>
+        <button class="text-button" type="button">Contact support →</button>
+      </section>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        Demo prototype · Maharashtra pilot
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" aria-hidden="true" hidden></div>
+
+    <div class="page-wrapper">
+      <header class="topbar">
+        <button
+          class="mobile-menu-button"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobile-sidebar"
+        >
+          ☰
+        </button>
+
+        <div class="location-selector">
+          <span class="location-icon">⌖</span>
+
+          <div>
+            <small>FPO region</small>
+
+            <button class="location-button" type="button">
+              Baramati, Pune, Maharashtra
+              <span>⌄</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="language-button" type="button">
+            अ / A
+            <span>मराठी</span>
+          </button>
+
+          <button class="notification-button" type="button" aria-label="View 4 notifications">
+            ♧
+            <span class="notification-count">4</span>
+          </button>
+
+          <button class="profile-button" type="button">
+            <span class="profile-avatar">BF</span>
+            <span class="profile-name">Baramati Farmers FPO</span>
+            <span>⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="main-content" class="fpo-content">
+        <section id="fpo-dashboard" class="fpo-welcome">
+          <div>
+            <p class="eyebrow">FPO Coordinator Dashboard</p>
+            <h1>Welcome, Baramati Farmers FPO.</h1>
+            <p>
+              Verify member supply, build buyer-ready bulk lots,
+              and help farmers reach stronger market opportunities.
+            </p>
+          </div>
+
+          <div class="data-status">
+            <span class="status-dot"></span>
+            Demo market data · Updated today, 8:30 AM
+          </div>
+        </section>
+
+        <section class="fpo-summary-grid" aria-label="FPO summary">
+          <article class="fpo-summary-card">
+            <span class="summary-icon">▦</span>
+            <div>
+              <strong>28</strong>
+              <span>Member lots received</span>
+            </div>
+          </article>
+
+          <article class="fpo-summary-card">
+            <span class="summary-icon">⊕</span>
+            <div>
+              <strong>42 qtl</strong>
+              <span>Ready cotton bulk lot</span>
+            </div>
+          </article>
+
+          <article class="fpo-summary-card">
+            <span class="summary-icon">◈</span>
+            <div>
+              <strong>6</strong>
+              <span>Lots pending verification</span>
+            </div>
+          </article>
+
+          <article class="fpo-summary-card demand-card">
+            <span class="summary-icon">⇄</span>
+            <div>
+              <strong>3</strong>
+              <span>Matching buyer demands</span>
+            </div>
+          </article>
+        </section>
+
+        <section id="member-lots" class="fpo-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Farmer member supply</p>
+              <h2>Lots ready for aggregation</h2>
+            </div>
+
+            <button class="section-link button-reset" type="button">
+              View all member lots →
+            </button>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <caption>Farmer lots available for FPO aggregation.</caption>
+
+              <thead>
+                <tr>
+                  <th>Farmer</th>
+                  <th>Crop & quantity</th>
+                  <th>Village</th>
+                  <th>Quality level</th>
+                  <th>Availability</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Ramesh Patil</strong>
+                    <span class="table-subtext">Member since 2024</span>
+                  </td>
+
+                  <td>18 qtl cotton</td>
+                  <td>Malegaon</td>
+                  <td><span class="quality-badge estimated">Level 2 · AI estimate</span></td>
+                  <td>Ready now</td>
+                  <td><button class="table-action" type="button">Verify lot</button></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Savita Jadhav</strong>
+                    <span class="table-subtext">Member since 2023</span>
+                  </td>
+
+                  <td>12 qtl cotton</td>
+                  <td>Katewadi</td>
+                  <td><span class="quality-badge verified">Level 3 · FPO verified</span></td>
+                  <td>Ready now</td>
+                  <td><button class="table-action" type="button">Add to pool</button></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <strong>Ganesh Shinde</strong>
+                    <span class="table-subtext">Member since 2025</span>
+                  </td>
+
+                  <td>12 qtl cotton</td>
+                  <td>Baramati</td>
+                  <td><span class="quality-badge verified">Level 3 · FPO verified</span></td>
+                  <td>Pickup: 8 Sept</td>
+                  <td><button class="table-action" type="button">Add to pool</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="aggregation" class="fpo-section aggregation-section">
+          <div class="aggregation-copy">
+            <p class="eyebrow">Bulk lot creation</p>
+            <h2>Create a buyer-ready cotton lot.</h2>
+            <p>
+              The coordinator confirms quantity and quality.
+              Farmers remain informed before their lot is included.
+            </p>
+
+            <div class="aggregation-progress">
+              <span class="complete">Member lots selected</span>
+              <span class="complete">Quality verified</span>
+              <span class="current">Publish bulk lot</span>
+            </div>
+          </div>
+
+          <article class="bulk-lot-builder">
+            <div class="builder-top">
+              <span class="crop-badge cotton">Cotton</span>
+              <span class="pool-status">Ready to publish</span>
+            </div>
+
+            <h3>Baramati Cotton Bulk Lot</h3>
+            <p>3 farmer lots · FPO collection centre</p>
+
+            <div class="builder-stat-grid">
+              <div>
+                <span>Total quantity</span>
+                <strong>42 quintals</strong>
+              </div>
+
+              <div>
+                <span>Verified quality</span>
+                <strong>Level 3</strong>
+              </div>
+
+              <div>
+                <span>Expected price</span>
+                <strong>₹7,340 / qtl</strong>
+              </div>
+
+              <div>
+                <span>Collection date</span>
+                <strong>8 Sept</strong>
+              </div>
+            </div>
+
+            <button class="publish-button" type="button">
+              Publish to buyer demand board
+            </button>
+          </article>
+        </section>
+
+        <section id="buyer-demand" class="fpo-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Processor and institution demand</p>
+              <h2>Buyer opportunities matching your supply</h2>
+            </div>
+
+            <div class="table-filters">
+              <button class="filter-button active" type="button">Best match</button>
+              <button class="filter-button" type="button">Highest price</button>
+              <button class="filter-button" type="button">Nearest buyer</button>
+            </div>
+          </div>
+
+          <div class="demand-grid">
+            <article class="buyer-demand-card featured-demand">
+              <div class="demand-card-top">
+                <span class="buyer-type processor">Food Processor</span>
+                <span class="match-label">98% match</span>
+              </div>
+
+              <h3>Sahyadri Kitchens Pvt. Ltd.</h3>
+              <p>Requires 40–60 qtl verified cotton for Pune facility.</p>
+
+              <div class="demand-details">
+                <span>Required by: 10 Sept</span>
+                <strong>Indicative rate: ₹7,360 / qtl</strong>
+              </div>
+
+              <button class="respond-button" type="button">Respond with bulk lot</button>
+            </article>
+
+            <article class="buyer-demand-card">
+              <div class="demand-card-top">
+                <span class="buyer-type trader">Trader</span>
+                <span class="match-label">87% match</span>
+              </div>
+
+              <h3>Shakti Cotton Traders</h3>
+              <p>Requires 30–50 qtl cotton with FPO verification.</p>
+
+              <div class="demand-details">
+                <span>Required by: 9 Sept</span>
+                <strong>Indicative rate: ₹7,310 / qtl</strong>
+              </div>
+
+              <button class="respond-button" type="button">View requirement</button>
+            </article>
+          </div>
+        </section>
+
+        <section id="collection" class="fpo-section collection-section">
+          <div class="collection-copy">
+            <p class="eyebrow">Collection and transport</p>
+            <h2>Plan one efficient collection route.</h2>
+            <p>
+              Group nearby farmer pickups before moving the bulk lot
+              to the FPO centre or buyer delivery point.
+            </p>
+
+            <button class="secondary-button" type="button">
+              Open transport board →
+            </button>
+          </div>
+
+          <article class="collection-card">
+            <div class="collection-route">
+              <span>Malegaon</span>
+              <b>→</b>
+              <span>Katewadi</span>
+              <b>→</b>
+              <span>Baramati FPO Centre</span>
+            </div>
+
+            <div class="collection-stats">
+              <div>
+                <strong>3</strong>
+                <span>Farmer pickups</span>
+              </div>
+
+              <div>
+                <strong>31 km</strong>
+                <span>Estimated route</span>
+              </div>
+
+              <div>
+                <strong>₹1,850</strong>
+                <span>Transport estimate</span>
+              </div>
+            </div>
+
+            <p>Backhaul vehicle available · 8 Sept, 9:00 AM</p>
+          </article>
+        </section>
+
+        <section id="payments" class="fpo-section payment-section">
+          <div class="payment-copy">
+            <p class="eyebrow">Farmer payment visibility</p>
+            <h2>Keep payments linked to the verified bulk transaction.</h2>
+            <p>
+              Once a buyer payment is confirmed, the FPO can view
+              the amount due to each farmer against their contributed lot.
+            </p>
+          </div>
+
+          <article class="payment-card">
+            <span class="payment-status">Payment pending</span>
+            <h3>Baramati Cotton Bulk Lot</h3>
+            <p>Expected buyer payment after delivery confirmation.</p>
+
+            <div class="payment-card-footer">
+              <strong>₹3,08,280</strong>
+              <button type="button">View distribution</button>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>AgroConnect · Smart India Hackathon 2026 Prototype</span>
+
+        <nav>
+          <a href="#accessibility">Accessibility</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#support">Help & Support</a>
+        </nav>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/fpo.js"></script>
+</body>
+</html>
