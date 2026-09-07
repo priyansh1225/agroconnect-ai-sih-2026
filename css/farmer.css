@@ -1270,3 +1270,91 @@ td strong,
     min-height: 60px;
   }
 }
+
+/* =========================================================
+   FARMER MOBILE - PREVENT PAGE WIDTH OVERFLOW
+   ========================================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.app-shell,
+.page-wrapper,
+.dashboard-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Make every grid/flex child allowed to shrink */
+.dashboard-welcome,
+.section-heading,
+.quick-actions,
+.price-summary-grid,
+.dashboard-two-column,
+.transaction-section,
+.quick-action-card,
+.price-summary-card,
+.calculator-preview,
+.my-lot-section,
+.table-container,
+.transaction-preview {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Table must scroll INSIDE its container,
+   never make the whole page wider */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.table-container table {
+  width: 100%;
+  min-width: 720px;
+}
+
+/* Prevent long text from forcing the page wider */
+.dashboard-content * {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .dashboard-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .dashboard-two-column,
+  .transaction-section {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .quick-action-card,
+  .price-summary-card,
+  .calculator-preview,
+  .my-lot-section,
+  .table-container,
+  .transaction-preview {
+    width: 100%;
+    min-width: 0;
+  }
+}
