@@ -4,12 +4,13 @@
   <!-- Basic document setup -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta
     name="description"
     content="AgroConnect AI farmer market dashboard for price discovery and better selling decisions."
   >
 
-  <title>Farmer Dashboard | AgroConnect </title>
+  <title>Farmer Dashboard | AgroConnect</title>
 
   <!-- Shared project styles -->
   <link rel="stylesheet" href="css/common.css">
@@ -17,16 +18,25 @@
 </head>
 
 <body>
-  <!-- Accessibility: keyboard users can bypass repeated navigation -->
-  <a class="skip-link" href="#main-content">Skip to dashboard content</a>
+
+  <!-- Accessibility -->
+  <a class="skip-link" href="#main-content">
+    Skip to dashboard content
+  </a>
 
   <div class="app-shell">
+
     <!-- =========================================================
-         SIDEBAR: Main product navigation
-         Each link will connect to a real screen later.
+         SIDEBAR
          ========================================================= -->
-    <aside id="mobile-sidebar" class="sidebar" aria-label="Application navigation">
-      <!-- Mobile-only sidebar close button -->
+
+    <aside
+      id="mobile-sidebar"
+      class="sidebar"
+      aria-label="Application navigation"
+    >
+
+      <!-- Mobile close button -->
       <button
         class="sidebar-close-button"
         type="button"
@@ -35,85 +45,217 @@
         <span aria-hidden="true">×</span>
       </button>
 
-<div class="brand-area">
-        <a class="brand" href="index.html" aria-label="AgroConnect dashboard">
-          <span class="brand-icon" aria-hidden="true">✦</span>
-          <span>
-            <strong>AgroConnect</strong>
-            <em></em>
+
+      <!-- BRAND -->
+      <div class="brand-area">
+
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="AgroConnect dashboard"
+        >
+
+          <span class="brand-icon" aria-hidden="true">
+
+            <svg
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+
+              <!-- Soft logo background -->
+              <rect
+                x="3"
+                y="3"
+                width="58"
+                height="58"
+                rx="18"
+                fill="#B9D88A"
+              />
+
+              <!-- Leaf -->
+              <path
+                d="M42.5 13C30 15 20 23 19 35C18.5 42 23 48 29.5 50C31 39 36 30 47 24C48 20 46 16 42.5 13Z"
+                fill="#145B42"
+              />
+
+              <!-- Leaf vein -->
+              <path
+                d="M24 45C28 36 34 29 44 23"
+                stroke="#B9D88A"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
+              <!-- Small crop stem -->
+              <path
+                d="M20 50C25 49 29 48 33 46"
+                stroke="#145B42"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+
+            </svg>
+
           </span>
+
+          <span class="brand-text">
+            <strong>AgroConnect</strong>
+            <em>AI</em>
+          </span>
+
         </a>
 
-        <p class="brand-tagline">Better markets. Better farmer choices.</p>
+        <p class="brand-tagline">
+          Better markets. Better farmer choices.
+        </p>
+
       </div>
 
-      <nav class="sidebar-nav" aria-label="Dashboard sections">
-        <a class="nav-item active" href="index.html" aria-current="page">
+
+      <!-- SIDEBAR NAVIGATION -->
+
+      <nav
+        class="sidebar-nav"
+        aria-label="Dashboard sections"
+      >
+
+        <a
+          class="nav-item active"
+          href="index.html"
+          aria-current="page"
+        >
           <span aria-hidden="true">⌂</span>
           Dashboard
         </a>
 
-        <a class="nav-item" href="#market-prices">
+        <a
+          class="nav-item"
+          href="#market-prices"
+        >
           <span aria-hidden="true">₹</span>
           Market Prices
         </a>
 
-        <a class="nav-item" href="#net-realization">
+        <a
+          class="nav-item"
+          href="#net-realization"
+        >
           <span aria-hidden="true">◒</span>
           Net Realization
         </a>
 
-        <a class="nav-item" href="#my-lots">
+        <a
+          class="nav-item"
+          href="#my-lots"
+        >
           <span aria-hidden="true">▦</span>
           My Crop Lots
         </a>
 
-        <a class="nav-item" href="#fpo-aggregation">
+        <a
+          class="nav-item"
+          href="#fpo-aggregation"
+        >
           <span aria-hidden="true">⊕</span>
           FPO Aggregation
         </a>
 
-        <a class="nav-item" href="#transport">
+        <a
+          class="nav-item"
+          href="#transport"
+        >
           <span aria-hidden="true">⇄</span>
           Transport Board
         </a>
 
-        <a class="nav-item" href="#transactions">
+        <a
+          class="nav-item"
+          href="#transactions"
+        >
           <span aria-hidden="true">✓</span>
           Transactions
         </a>
+
       </nav>
 
-      <!-- Assistance is important for low-literacy and non-smartphone access -->
-      <section class="help-card" aria-labelledby="help-title">
-        <span class="help-icon" aria-hidden="true">?</span>
-        <h2 id="help-title">Need assistance?</h2>
-        <p>Get crop prices through WhatsApp, SMS, or IVR.</p>
-        <button class="text-button" type="button">
+
+      <!-- HELP CARD -->
+
+      <section
+        class="help-card"
+        aria-labelledby="help-title"
+      >
+
+        <span
+          class="help-icon"
+          aria-hidden="true"
+        >
+          ?
+        </span>
+
+        <h2 id="help-title">
+          Need assistance?
+        </h2>
+
+        <p>
+          Get crop prices through WhatsApp, SMS, or IVR.
+        </p>
+
+        <button
+          class="text-button"
+          type="button"
+        >
           View access options →
         </button>
+
       </section>
 
+
+      <!-- SIDEBAR FOOTER -->
+
       <div class="sidebar-footer">
-        <span class="status-dot" aria-hidden="true"></span>
+
+        <span
+          class="status-dot"
+          aria-hidden="true"
+        ></span>
+
         Demo prototype · Maharashtra pilot
+
       </div>
+
     </aside>
 
-    <!-- Mobile backdrop: tapping outside the sidebar closes it -->
+
+    <!-- MOBILE OVERLAY -->
+
     <div
       class="sidebar-overlay"
       aria-hidden="true"
       hidden
     ></div>
 
+
+    <!-- =========================================================
+         PAGE WRAPPER
+         ========================================================= -->
+
     <div class="page-wrapper">
+
+
       <!-- =========================================================
-           TOP BAR: Profile, language and notification controls
-           Language is a real product requirement, not decoration.
+           TOP BAR
            ========================================================= -->
-      <header class="topbar topbar-sticky" data-sticky-header>
-       <button
+
+      <header
+        class="topbar topbar-sticky"
+        data-sticky-header
+      >
+
+        <!-- Mobile menu -->
+
+        <button
           class="mobile-menu-button"
           type="button"
           aria-label="Open navigation"
@@ -123,411 +265,1323 @@
           <span aria-hidden="true">☰</span>
         </button>
 
+
+        <!-- LOCATION -->
+
         <div class="location-selector">
-          <span class="location-icon" aria-hidden="true">⌖</span>
+
+          <span
+            class="location-icon"
+            aria-hidden="true"
+          >
+            ⌖
+          </span>
+
           <div>
-            <small>Your location</small>
-            <button type="button" class="location-button">
+
+            <small>
+              Your location
+            </small>
+
+            <button
+              type="button"
+              class="location-button"
+            >
               Baramati, Pune, Maharashtra
-              <span aria-hidden="true">⌄</span>
+
+              <span aria-hidden="true">
+                ⌄
+              </span>
+
             </button>
+
           </div>
+
         </div>
+
+
+        <!-- TOPBAR ACTIONS -->
 
         <div class="topbar-actions">
-          <button class="language-button" type="button" aria-label="Change language">
-            अ / A
-            <span>मराठी</span>
+
+
+          <!-- LANGUAGE -->
+
+          <button
+            class="language-button"
+            type="button"
+            aria-label="Change language"
+          >
+
+            <span aria-hidden="true">
+              अ / A
+            </span>
+
+            <span data-language-label>
+              English
+            </span>
+
           </button>
 
-          <button class="notification-button" type="button" aria-label="View 2 notifications">
+
+          <!-- NOTIFICATIONS -->
+
+          <button
+            class="notification-button"
+            type="button"
+            aria-label="View 2 notifications"
+          >
+
             ♧
-            <span class="notification-count">2</span>
+
+            <span class="notification-count">
+              2
+            </span>
+
           </button>
 
-          <button class="profile-button" type="button" aria-label="Open profile menu">
-            <span class="profile-avatar" aria-hidden="true">RP</span>
-            <span class="profile-name">Ramesh Patil</span>
-            <span aria-hidden="true">⌄</span>
+
+          <!-- PROFILE -->
+
+          <button
+            class="profile-button"
+            type="button"
+            aria-label="Open profile menu"
+          >
+
+            <span
+              class="profile-avatar"
+              aria-hidden="true"
+            >
+              RP
+            </span>
+
+            <span class="profile-name">
+              Ramesh Patil
+            </span>
+
+            <span aria-hidden="true">
+              ⌄
+            </span>
+
           </button>
+
         </div>
+
       </header>
 
-      <main id="main-content" class="dashboard-content">
-        <!-- =========================================================
+
+      <!-- =========================================================
+           MAIN CONTENT
+           ========================================================= -->
+
+      <main
+        id="main-content"
+        class="dashboard-content"
+      >
+
+
+        <!-- =======================================================
              PAGE INTRODUCTION
-             Data is identified as demo data until API integration.
-             ========================================================= -->
-        <section class="dashboard-welcome" aria-labelledby="dashboard-title">
+             ======================================================= -->
+
+        <section
+          class="dashboard-welcome"
+          aria-labelledby="dashboard-title"
+        >
+
           <div>
-            <p class="eyebrow">Farmer dashboard</p>
-            <h1 id="dashboard-title">Namaskar, Ramesh.</h1>
-            <p class="welcome-copy">
-              Compare your selling options before you decide.
-              <strong>You always make the final choice.</strong>
+
+            <p class="eyebrow">
+              Farmer dashboard
             </p>
+
+            <h1 id="dashboard-title">
+              Namaskar, Ramesh.
+            </h1>
+
+            <p class="welcome-copy">
+
+              Compare your selling options before you decide.
+
+              <strong>
+                You always make the final choice.
+              </strong>
+
+            </p>
+
           </div>
 
-          <div class="data-status" role="status">
-            <span class="status-dot" aria-hidden="true"></span>
+
+          <div
+            class="data-status"
+            role="status"
+          >
+
+            <span
+              class="status-dot"
+              aria-hidden="true"
+            ></span>
+
             Demo market data · Updated today, 8:30 AM
+
           </div>
+
         </section>
 
-        <!-- =========================================================
+
+        <!-- =======================================================
              QUICK ACTIONS
-             These become links to functional prototype modules.
-             ========================================================= -->
-        <section class="quick-actions" aria-label="Quick actions">
-          <a class="quick-action-card" href="#net-realization">
-            <span class="quick-action-icon" aria-hidden="true">◒</span>
-            <span>
-              <strong>Calculate earnings</strong>
-              <small>Compare selling options</small>
+             ======================================================= -->
+
+        <section
+          class="quick-actions"
+          aria-label="Quick actions"
+        >
+
+          <a
+            class="quick-action-card"
+            href="#net-realization"
+          >
+
+            <span
+              class="quick-action-icon"
+              aria-hidden="true"
+            >
+              ◒
             </span>
-            <b aria-hidden="true">→</b>
+
+            <span>
+
+              <strong>
+                Calculate earnings
+              </strong>
+
+              <small>
+                Compare selling options
+              </small>
+
+            </span>
+
+            <b aria-hidden="true">
+              →
+            </b>
+
           </a>
 
-          <a class="quick-action-card" href="#my-lots">
-            <span class="quick-action-icon" aria-hidden="true">+</span>
-            <span>
-              <strong>Add crop lot</strong>
-              <small>List or join an FPO lot</small>
+
+          <a
+            class="quick-action-card"
+            href="#my-lots"
+          >
+
+            <span
+              class="quick-action-icon"
+              aria-hidden="true"
+            >
+              +
             </span>
-            <b aria-hidden="true">→</b>
+
+            <span>
+
+              <strong>
+                Add crop lot
+              </strong>
+
+              <small>
+                List or join an FPO lot
+              </small>
+
+            </span>
+
+            <b aria-hidden="true">
+              →
+            </b>
+
           </a>
 
-          <a class="quick-action-card" href="#transport">
-            <span class="quick-action-icon" aria-hidden="true">⇄</span>
-            <span>
-              <strong>Find transport</strong>
-              <small>See nearby return trips</small>
+
+          <a
+            class="quick-action-card"
+            href="#transport"
+          >
+
+            <span
+              class="quick-action-icon"
+              aria-hidden="true"
+            >
+              ⇄
             </span>
-            <b aria-hidden="true">→</b>
+
+            <span>
+
+              <strong>
+                Find transport
+              </strong>
+
+              <small>
+                See nearby return trips
+              </small>
+
+            </span>
+
+            <b aria-hidden="true">
+              →
+            </b>
+
           </a>
+
         </section>
 
-        <!-- =========================================================
-             PRICE OVERVIEW
-             Values use data attributes for future JavaScript/API use.
-             ========================================================= -->
-        <section id="market-prices" class="dashboard-section" aria-labelledby="price-heading">
+
+        <!-- =======================================================
+             MARKET PRICES
+             ======================================================= -->
+
+        <section
+          id="market-prices"
+          class="dashboard-section"
+          aria-labelledby="price-heading"
+        >
+
           <div class="section-heading">
+
             <div>
-              <p class="eyebrow">Market intelligence</p>
-              <h2 id="price-heading">Today’s crop prices</h2>
+
+              <p class="eyebrow">
+                Market intelligence
+              </p>
+
+              <h2 id="price-heading">
+                Today’s crop prices
+              </h2>
+
             </div>
 
-            <a class="section-link" href="#all-prices">
+
+            <a
+              class="section-link"
+              href="#all-prices"
+            >
               Compare all mandis →
             </a>
+
           </div>
+
 
           <div class="price-summary-grid">
-            <article class="price-summary-card featured-price">
+
+
+            <!-- COTTON -->
+
+            <article
+              class="price-summary-card featured-price"
+            >
+
               <div class="card-label-row">
-                <span class="crop-badge cotton">Cotton</span>
-                <span class="trend-positive">↑ 4.2%</span>
+
+                <span class="crop-badge cotton">
+                  Cotton
+                </span>
+
+                <span class="trend-positive">
+                  ↑ 4.2%
+                </span>
+
               </div>
 
-              <p class="price-location">Baramati APMC</p>
+              <p class="price-location">
+                Baramati APMC
+              </p>
 
-              <p class="market-price" data-crop="cotton" data-price="7180">
+              <p
+                class="market-price"
+                data-crop="cotton"
+                data-price="7180"
+              >
                 ₹7,180
-                <span>/ quintal</span>
+
+                <span>
+                  / quintal
+                </span>
+
               </p>
 
-              <p class="price-note">₹290 above last week’s average</p>
+              <p class="price-note">
+                ₹290 above last week’s average
+              </p>
+
             </article>
 
+
+            <!-- RICE -->
+
             <article class="price-summary-card">
+
               <div class="card-label-row">
-                <span class="crop-badge rice">Rice</span>
-                <span class="trend-positive">↑ 1.6%</span>
+
+                <span class="crop-badge rice">
+                  Rice
+                </span>
+
+                <span class="trend-positive">
+                  ↑ 1.6%
+                </span>
+
               </div>
 
-              <p class="price-location">Pune APMC</p>
+              <p class="price-location">
+                Pune APMC
+              </p>
 
-              <p class="market-price" data-crop="rice" data-price="2380">
+              <p
+                class="market-price"
+                data-crop="rice"
+                data-price="2380"
+              >
                 ₹2,380
-                <span>/ quintal</span>
+
+                <span>
+                  / quintal
+                </span>
+
               </p>
 
-              <p class="price-note">Stable demand from local buyers</p>
+              <p class="price-note">
+                Stable demand from local buyers
+              </p>
+
             </article>
+
+
+            <!-- SUGARCANE -->
 
             <article class="price-summary-card">
+
               <div class="card-label-row">
-                <span class="crop-badge sugarcane">Sugarcane</span>
-                <span class="trend-neutral">Stable</span>
+
+                <span class="crop-badge sugarcane">
+                  Sugarcane
+                </span>
+
+                <span class="trend-neutral">
+                  Stable
+                </span>
+
               </div>
 
-              <p class="price-location">Daund procurement centre</p>
-
-              <p class="market-price" data-crop="sugarcane" data-price="3150">
-                ₹3,150
-                <span>/ tonne</span>
+              <p class="price-location">
+                Daund procurement centre
               </p>
 
-              <p class="price-note">MSP-linked procurement available</p>
+              <p
+                class="market-price"
+                data-crop="sugarcane"
+                data-price="3150"
+              >
+                ₹3,150
+
+                <span>
+                  / tonne
+                </span>
+
+              </p>
+
+              <p class="price-note">
+                MSP-linked procurement available
+              </p>
+
             </article>
+
           </div>
+
         </section>
 
+
+        <!-- =======================================================
+             TWO COLUMN AREA
+             ======================================================= -->
+
         <div class="dashboard-two-column">
-          <!-- =======================================================
-               NET-REALIZATION PREVIEW
-               Final calculation logic will be added in main.js.
-               ======================================================= -->
-          <section id="net-realization" class="dashboard-section calculator-preview" aria-labelledby="calculator-heading">
+
+
+          <!-- =====================================================
+               NET REALIZATION
+               ===================================================== -->
+
+          <section
+            id="net-realization"
+            class="dashboard-section calculator-preview"
+            aria-labelledby="calculator-heading"
+          >
+
             <div class="section-heading">
+
               <div>
-                <p class="eyebrow">Decision support</p>
-                <h2 id="calculator-heading">Your cotton selling options</h2>
+
+                <p class="eyebrow">
+                  Decision support
+                </p>
+
+                <h2 id="calculator-heading">
+                  Your cotton selling options
+                </h2>
+
               </div>
 
-              <button class="section-link button-reset" type="button">
+
+              <button
+                class="section-link button-reset"
+                type="button"
+              >
                 Change crop
               </button>
+
             </div>
+
 
             <div class="calculator-lot-info">
-              <span class="crop-badge cotton">Cotton</span>
-              <span>My available lot: <strong>18 quintals</strong></span>
+
+              <span class="crop-badge cotton">
+                Cotton
+              </span>
+
+              <span>
+                My available lot:
+                <strong>
+                  18 quintals
+                </strong>
+              </span>
+
             </div>
 
-            <div class="option-list" role="list">
-              <article class="selling-option best-option" role="listitem">
-                <div class="option-radio" aria-hidden="true"></div>
+
+            <div
+              class="option-list"
+              role="list"
+            >
+
+
+              <!-- OPTION 1 -->
+
+              <article
+                class="selling-option best-option"
+                role="listitem"
+              >
+
+                <div
+                  class="option-radio"
+                  aria-hidden="true"
+                ></div>
+
 
                 <div class="option-details">
+
                   <div class="option-title-row">
-                    <h3>Sell at Baramati APMC</h3>
-                    <span class="recommended-label">Best net value</span>
+
+                    <h3>
+                      Sell at Baramati APMC
+                    </h3>
+
+                    <span class="recommended-label">
+                      Best net value
+                    </span>
+
                   </div>
 
-                  <p>Estimated transport: ₹1,080 · Same-day sale</p>
+                  <p>
+                    Estimated transport: ₹1,080 · Same-day sale
+                  </p>
+
                 </div>
+
 
                 <div class="option-value">
-                  <strong>₹1,28,160</strong>
-                  <span>Estimated net realization</span>
+
+                  <strong>
+                    ₹1,28,160
+                  </strong>
+
+                  <span>
+                    Estimated net realization
+                  </span>
+
                 </div>
+
               </article>
 
-              <article class="selling-option" role="listitem">
-                <div class="option-radio empty" aria-hidden="true"></div>
+
+              <!-- OPTION 2 -->
+
+              <article
+                class="selling-option"
+                role="listitem"
+              >
+
+                <div
+                  class="option-radio empty"
+                  aria-hidden="true"
+                ></div>
+
 
                 <div class="option-details">
-                  <h3>Sell to nearby trader</h3>
-                  <p>Estimated transport: ₹420 · Payment in 2 days</p>
+
+                  <h3>
+                    Sell to nearby trader
+                  </h3>
+
+                  <p>
+                    Estimated transport: ₹420 · Payment in 2 days
+                  </p>
+
                 </div>
+
 
                 <div class="option-value">
-                  <strong>₹1,25,340</strong>
-                  <span>Estimated net realization</span>
+
+                  <strong>
+                    ₹1,25,340
+                  </strong>
+
+                  <span>
+                    Estimated net realization
+                  </span>
+
                 </div>
+
               </article>
 
-              <article class="selling-option" role="listitem">
-                <div class="option-radio empty" aria-hidden="true"></div>
+
+              <!-- OPTION 3 -->
+
+              <article
+                class="selling-option"
+                role="listitem"
+              >
+
+                <div
+                  class="option-radio empty"
+                  aria-hidden="true"
+                ></div>
+
 
                 <div class="option-details">
-                  <h3>Store for 7 days</h3>
-                  <p>Storage + expected spoilage risk included</p>
+
+                  <h3>
+                    Store for 7 days
+                  </h3>
+
+                  <p>
+                    Storage + expected spoilage risk included
+                  </p>
+
                 </div>
 
+
                 <div class="option-value">
-                  <strong>₹1,22,900</strong>
-                  <span>Estimated net realization</span>
+
+                  <strong>
+                    ₹1,22,900
+                  </strong>
+
+                  <span>
+                    Estimated net realization
+                  </span>
+
                 </div>
+
               </article>
+
             </div>
 
-            <button class="primary-button" type="button" id="open-calculator">
+
+            <button
+              class="primary-button"
+              type="button"
+              id="open-calculator"
+            >
               Open full calculator →
             </button>
+
           </section>
 
-          <!-- =======================================================
-               FARMER LOT AND FPO AGGREGATION
-               Quality level must never be shown as one vague score.
-               ======================================================= -->
-          <section id="my-lots" class="dashboard-section my-lot-section" aria-labelledby="lot-heading">
+
+          <!-- =====================================================
+               MY CROP LOT
+               ===================================================== -->
+
+          <section
+            id="my-lots"
+            class="dashboard-section my-lot-section"
+            aria-labelledby="lot-heading"
+          >
+
             <div class="section-heading">
+
               <div>
-                <p class="eyebrow">Your supply</p>
-                <h2 id="lot-heading">My active crop lot</h2>
+
+                <p class="eyebrow">
+                  Your supply
+                </p>
+
+                <h2 id="lot-heading">
+                  My active crop lot
+                </h2>
+
               </div>
 
-              <button class="icon-button" type="button" aria-label="More lot actions">
+
+              <button
+                class="icon-button"
+                type="button"
+                aria-label="More lot actions"
+              >
                 ⋮
               </button>
+
             </div>
+
 
             <article class="lot-card">
+
+
               <div class="lot-card-top">
-                <span class="crop-badge cotton">Cotton</span>
-                <span class="lot-status">Open for aggregation</span>
+
+                <span class="crop-badge cotton">
+                  Cotton
+                </span>
+
+                <span class="lot-status">
+                  Open for aggregation
+                </span>
+
               </div>
 
-              <h3>Hybrid Cotton · 18 quintals</h3>
-              <p class="lot-location">Pickup: Malegaon, Baramati</p>
+
+              <h3>
+                Hybrid Cotton · 18 quintals
+              </h3>
+
+
+              <p class="lot-location">
+                Pickup: Malegaon, Baramati
+              </p>
+
+
+              <!-- =================================================
+                   UPDATED QUALITY / VERIFICATION STATUS
+                   ================================================= -->
 
               <div class="quality-status">
-                <div>
-                  <span>Quality status</span>
-                  <strong>AI photo estimate completed</strong>
+
+
+                <!-- Verification -->
+
+                <div class="quality-item">
+
+                  <span class="quality-icon">
+                    ✓
+                  </span>
+
+                  <div>
+
+                    <span>
+                      Verification status
+                    </span>
+
+                    <strong>
+                      FPO Verified
+                    </strong>
+
+                  </div>
+
+                  <span class="quality-badge verified">
+                    Verified
+                  </span>
+
                 </div>
-                <span class="quality-level level-two">Level 2 of 3</span>
+
+
+                <!-- Grade -->
+
+                <div class="quality-item">
+
+                  <span class="quality-icon">
+                    ◆
+                  </span>
+
+                  <div>
+
+                    <span>
+                      Quality grade
+                    </span>
+
+                    <strong>
+                      Grade A
+                    </strong>
+
+                  </div>
+
+                  <span class="quality-badge">
+                    FPO graded
+                  </span>
+
+                </div>
+
+
+                <!-- Moisture -->
+
+                <div class="quality-item">
+
+                  <span class="quality-icon">
+                    ◉
+                  </span>
+
+                  <div>
+
+                    <span>
+                      Moisture content
+                    </span>
+
+                    <strong>
+                      8–10%
+                    </strong>
+
+                  </div>
+
+                  <span class="quality-badge">
+                    Standard
+                  </span>
+
+                </div>
+
+
+                <!-- Weight -->
+
+                <div class="quality-item">
+
+                  <span class="quality-icon">
+                    ▣
+                  </span>
+
+                  <div>
+
+                    <span>
+                      Lot weight
+                    </span>
+
+                    <strong>
+                      18 quintals
+                    </strong>
+
+                  </div>
+
+                  <span class="quality-badge">
+                    Confirmed
+                  </span>
+
+                </div>
+
+
               </div>
 
-              <div class="quality-progress" aria-label="Quality trust level 2 of 3">
-                <span></span>
-                <span></span>
-                <span></span>
+
+              <!-- QUALITY PROGRESS -->
+
+              <div
+                class="quality-progress"
+                aria-label="Quality verification level 3 of 3"
+              >
+
+                <span class="active"></span>
+                <span class="active"></span>
+                <span class="active"></span>
+
               </div>
+
 
               <div class="lot-card-footer">
-                <span>FPO pool currently at <strong>42 qtl</strong></span>
-                <a href="#fpo-aggregation">View FPO lot →</a>
+
+                <span>
+                  FPO pool currently at
+                  <strong>
+                    42 qtl
+                  </strong>
+                </span>
+
+                <a href="#fpo-aggregation">
+                  View FPO lot →
+                </a>
+
               </div>
+
             </article>
 
-            <div id="fpo-aggregation" class="fpo-highlight">
-              <span class="fpo-icon" aria-hidden="true">⊕</span>
+
+            <!-- FPO HIGHLIGHT -->
+
+            <div
+              id="fpo-aggregation"
+              class="fpo-highlight"
+            >
+
+              <span
+                class="fpo-icon"
+                aria-hidden="true"
+              >
+                ⊕
+              </span>
+
               <div>
-                <strong>Your lot can join a buyer-ready FPO bulk lot.</strong>
-                <p>Processor demand requires 40–60 quintals of verified cotton.</p>
+
+                <strong>
+                  Your lot can join a buyer-ready FPO bulk lot.
+                </strong>
+
+                <p>
+                  Processor demand requires 40–60 quintals of verified cotton.
+                </p>
+
               </div>
-              <button type="button" class="small-button">Join pool</button>
+
+              <button
+                type="button"
+                class="small-button"
+              >
+                Join pool
+              </button>
+
             </div>
+
           </section>
+
         </div>
 
-        <!-- =========================================================
+
+        <!-- =======================================================
              MULTI-MANDI COMPARISON
-             A semantic table is used because this is true tabular data.
-             ========================================================= -->
-        <section id="all-prices" class="dashboard-section" aria-labelledby="mandi-heading">
+             ======================================================= -->
+
+        <section
+          id="all-prices"
+          class="dashboard-section"
+          aria-labelledby="mandi-heading"
+        >
+
           <div class="section-heading">
+
             <div>
-              <p class="eyebrow">Multi-mandi comparison</p>
-              <h2 id="mandi-heading">Cotton prices near you</h2>
+
+              <p class="eyebrow">
+                Multi-mandi comparison
+              </p>
+
+              <h2 id="mandi-heading">
+                Cotton prices near you
+              </h2>
+
             </div>
+
 
             <div class="table-filters">
-              <button class="filter-button active" type="button">Within 100 km</button>
-              <button class="filter-button" type="button">All Maharashtra</button>
+
+              <button
+                class="filter-button active"
+                type="button"
+              >
+                Within 100 km
+              </button>
+
+              <button
+                class="filter-button"
+                type="button"
+              >
+                All Maharashtra
+              </button>
+
             </div>
+
           </div>
 
+
           <div class="table-container">
+
             <table>
+
               <caption>
                 Demo cotton price comparison across nearby market options.
               </caption>
 
+
               <thead>
+
                 <tr>
-                  <th scope="col">Market</th>
-                  <th scope="col">Distance</th>
-                  <th scope="col">Price / quintal</th>
-                  <th scope="col">Transport estimate</th>
-                  <th scope="col">Buyer type</th>
-                  <th scope="col"><span class="visually-hidden">Action</span></th>
+
+                  <th scope="col">
+                    Market
+                  </th>
+
+                  <th scope="col">
+                    Distance
+                  </th>
+
+                  <th scope="col">
+                    Price / quintal
+                  </th>
+
+                  <th scope="col">
+                    Transport estimate
+                  </th>
+
+                  <th scope="col">
+                    Buyer type
+                  </th>
+
+                  <th scope="col">
+                    <span class="visually-hidden">
+                      Action
+                    </span>
+                  </th>
+
                 </tr>
+
               </thead>
 
+
               <tbody>
-                <tr>
-                  <td><strong>Baramati APMC</strong><span class="table-subtext">Pune district</span></td>
-                  <td>24 km</td>
-                  <td class="price-cell">₹7,180 <span class="trend-positive">↑</span></td>
-                  <td>₹60 / qtl</td>
-                  <td><span class="buyer-type mandi">Mandi</span></td>
-                  <td><button class="table-action" type="button">Calculate</button></td>
-                </tr>
+
+
+                <!-- BARAMATI -->
 
                 <tr>
-                  <td><strong>Indapur APMC</strong><span class="table-subtext">Pune district</span></td>
-                  <td>48 km</td>
-                  <td class="price-cell">₹7,260 <span class="trend-positive">↑</span></td>
-                  <td>₹110 / qtl</td>
-                  <td><span class="buyer-type mandi">Mandi</span></td>
-                  <td><button class="table-action" type="button">Calculate</button></td>
+
+                  <td>
+
+                    <strong>
+                      Baramati APMC
+                    </strong>
+
+                    <span class="table-subtext">
+                      Pune district
+                    </span>
+
+                  </td>
+
+                  <td>
+                    24 km
+                  </td>
+
+                  <td class="price-cell">
+                    ₹7,180
+                    <span class="trend-positive">
+                      ↑
+                    </span>
+                  </td>
+
+                  <td>
+                    ₹60 / qtl
+                  </td>
+
+                  <td>
+                    <span class="buyer-type mandi">
+                      Mandi
+                    </span>
+                  </td>
+
+                  <td>
+                    <button
+                      class="table-action"
+                      type="button"
+                    >
+                      Calculate
+                    </button>
+                  </td>
+
                 </tr>
 
-                <tr>
-                  <td><strong>Shakti Cotton Traders</strong><span class="table-subtext">Buyer reliability: 4.6 / 5</span></td>
-                  <td>18 km</td>
-                  <td class="price-cell">₹7,090 <span class="trend-neutral">—</span></td>
-                  <td>₹25 / qtl</td>
-                  <td><span class="buyer-type trader">Trader</span></td>
-                  <td><button class="table-action" type="button">View offer</button></td>
-                </tr>
+
+                <!-- INDAPUR -->
 
                 <tr>
-                  <td><strong>FPO bulk demand board</strong><span class="table-subtext">Minimum 40 qtl · Verified quality</span></td>
-                  <td>FPO collection</td>
-                  <td class="price-cell">₹7,340 <span class="trend-positive">↑</span></td>
-                  <td>Shared transport</td>
-                  <td><span class="buyer-type processor">Processor</span></td>
-                  <td><button class="table-action" type="button">Join pool</button></td>
+
+                  <td>
+
+                    <strong>
+                      Indapur APMC
+                    </strong>
+
+                    <span class="table-subtext">
+                      Pune district
+                    </span>
+
+                  </td>
+
+                  <td>
+                    48 km
+                  </td>
+
+                  <td class="price-cell">
+                    ₹7,260
+                    <span class="trend-positive">
+                      ↑
+                    </span>
+                  </td>
+
+                  <td>
+                    ₹110 / qtl
+                  </td>
+
+                  <td>
+                    <span class="buyer-type mandi">
+                      Mandi
+                    </span>
+                  </td>
+
+                  <td>
+                    <button
+                      class="table-action"
+                      type="button"
+                    >
+                      Calculate
+                    </button>
+                  </td>
+
                 </tr>
+
+
+                <!-- TRADER -->
+
+                <tr>
+
+                  <td>
+
+                    <strong>
+                      Shakti Cotton Traders
+                    </strong>
+
+                    <span class="table-subtext">
+                      Buyer reliability: 4.6 / 5
+                    </span>
+
+                  </td>
+
+                  <td>
+                    18 km
+                  </td>
+
+                  <td class="price-cell">
+                    ₹7,090
+
+                    <span class="trend-neutral">
+                      —
+                    </span>
+
+                  </td>
+
+                  <td>
+                    ₹25 / qtl
+                  </td>
+
+                  <td>
+                    <span class="buyer-type trader">
+                      Trader
+                    </span>
+                  </td>
+
+                  <td>
+                    <button
+                      class="table-action"
+                      type="button"
+                    >
+                      View offer
+                    </button>
+                  </td>
+
+                </tr>
+
+
+                <!-- FPO -->
+
+                <tr>
+
+                  <td>
+
+                    <strong>
+                      FPO bulk demand board
+                    </strong>
+
+                    <span class="table-subtext">
+                      Minimum 40 qtl · Verified quality
+                    </span>
+
+                  </td>
+
+                  <td>
+                    FPO collection
+                  </td>
+
+                  <td class="price-cell">
+
+                    ₹7,340
+
+                    <span class="trend-positive">
+                      ↑
+                    </span>
+
+                  </td>
+
+                  <td>
+                    Shared transport
+                  </td>
+
+                  <td>
+                    <span class="buyer-type processor">
+                      Processor
+                    </span>
+                  </td>
+
+                  <td>
+
+                    <button
+                      class="table-action"
+                      type="button"
+                    >
+                      Join pool
+                    </button>
+
+                  </td>
+
+                </tr>
+
               </tbody>
+
             </table>
+
           </div>
+
         </section>
 
-        <!-- =========================================================
-             TRANSACTION / TRUST PREVIEW
-             A transaction will later link payment and grievance data.
-             ========================================================= -->
-        <section id="transactions" class="dashboard-section transaction-section" aria-labelledby="transaction-heading">
+
+        <!-- =======================================================
+             TRANSACTIONS
+             ======================================================= -->
+
+        <section
+          id="transactions"
+          class="dashboard-section transaction-section"
+          aria-labelledby="transaction-heading"
+        >
+
           <div class="transaction-copy">
-            <p class="eyebrow">Trusted transactions</p>
-            <h2 id="transaction-heading">Every offer has a clear record.</h2>
+
+            <p class="eyebrow">
+              Trusted transactions
+            </p>
+
+            <h2 id="transaction-heading">
+              Every offer has a clear record.
+            </h2>
+
             <p>
               Review offer details, buyer reliability, quality requirements,
               payment status and delivery confirmation in one place.
             </p>
-            <a class="secondary-button" href="#transaction-history">
+
+            <a
+              class="secondary-button"
+              href="#transaction-history"
+            >
               View transaction history →
             </a>
+
           </div>
 
+
           <article class="transaction-preview">
+
             <div class="transaction-preview-top">
-              <span class="buyer-type trader">Offer received</span>
-              <span class="reliability-score">★ 4.6 Reliable buyer</span>
+
+              <span class="buyer-type trader">
+                Offer received
+              </span>
+
+              <span class="reliability-score">
+                ★ 4.6 Reliable buyer
+              </span>
+
             </div>
 
-            <h3>Shakti Cotton Traders</h3>
-            <p>18 qtl cotton · ₹7,090 / qtl</p>
+
+            <h3>
+              Shakti Cotton Traders
+            </h3>
+
+            <p>
+              18 qtl cotton · ₹7,090 / qtl
+            </p>
+
 
             <div class="transaction-preview-footer">
-              <span>Payment method: UPI</span>
-              <button type="button">Review offer</button>
+
+              <span>
+                Payment method: UPI
+              </span>
+
+              <button type="button">
+                Review offer
+              </button>
+
             </div>
+
           </article>
+
         </section>
+
       </main>
 
-      <!-- Product footer: legal/policy links will be real pages before launch -->
+
+      <!-- =========================================================
+           FOOTER
+           ========================================================= -->
+
       <footer class="app-footer">
-        <span>AgroConnect AI · Smart India Hackathon 2026 Prototype</span>
+
+        <span>
+          AgroConnect AI · Smart India Hackathon 2026 Prototype
+        </span>
 
         <nav aria-label="Footer navigation">
-          <a href="#accessibility">Accessibility</a>
-          <a href="#privacy">Privacy</a>
-          <a href="#support">Help & Support</a>
+
+          <a href="#accessibility">
+            Accessibility
+          </a>
+
+          <a href="#privacy">
+            Privacy
+          </a>
+
+          <a href="#support">
+            Help & Support
+          </a>
+
         </nav>
+
       </footer>
+
     </div>
+
   </div>
 
-  <!-- Shared JavaScript: menu, calculator, filters and future API calls -->
+
+  <!-- =========================================================
+       JAVASCRIPT
+       ========================================================= -->
+
+  <!-- Existing Farmer JavaScript -->
   <script src="js/farmer.js"></script>
+
+  <!-- Language selector / English / Hindi / Marathi -->
+  <script src="js/language.js"></script>
+
 </body>
 </html>

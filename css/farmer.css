@@ -1358,3 +1358,759 @@ body {
     min-width: 0;
   }
 }
+
+/* =========================================================
+   FINAL WIDTH FIX
+   Prevent Farmer Dashboard from being cut off on the right
+   ========================================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.page-wrapper {
+  width: calc(100% - var(--sidebar));
+  max-width: none;
+  min-width: 0;
+  margin-left: var(--sidebar);
+  overflow-x: hidden;
+}
+
+.dashboard-content {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 35px;
+}
+
+/* Prevent grid children from forcing the page wider */
+
+.quick-actions,
+.price-summary-grid,
+.dashboard-two-column,
+.transaction-section,
+.quick-action-card,
+.price-summary-card,
+.calculator-preview,
+.my-lot-section,
+.table-container,
+.transaction-preview {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Grid columns must stay inside available width */
+
+.quick-actions,
+.price-summary-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dashboard-two-column {
+  grid-template-columns: minmax(0, 1.4fr) minmax(250px, 0.8fr);
+}
+
+/* Tables scroll INSIDE their container */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.table-container table {
+  width: 100%;
+  min-width: 720px;
+}
+
+/* Flex sections must be allowed to shrink */
+
+.dashboard-welcome,
+.section-heading,
+.lot-card-top,
+.transaction-preview-top,
+.lot-card-footer,
+.transaction-preview-footer {
+  min-width: 0;
+}
+
+.dashboard-welcome > *,
+.section-heading > *,
+.lot-card-top > *,
+.transaction-preview-top > *,
+.lot-card-footer > *,
+.transaction-preview-footer > * {
+  min-width: 0;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .dashboard-content {
+    padding: 30px 25px;
+  }
+
+  .dashboard-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .transaction-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .page-wrapper {
+    width: 100%;
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .dashboard-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 28px 20px;
+  }
+
+  .quick-actions,
+  .price-summary-grid,
+  .dashboard-two-column,
+  .transaction-section {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .quick-action-card,
+  .price-summary-card,
+  .calculator-preview,
+  .my-lot-section,
+  .transaction-section,
+  .transaction-preview {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .dashboard-content {
+    padding: 24px 16px;
+  }
+
+  .dashboard-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .data-status {
+    max-width: 100%;
+  }
+
+  .quick-actions,
+  .price-summary-grid {
+    gap: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .dashboard-content {
+    padding: 22px 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+}
+
+/* =========================================================
+   VERIFIED CROP LOT DETAILS
+   ========================================================= */
+
+.quality-status {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 100%;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e5ebe5;
+}
+
+.quality-item {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-width: 0;
+}
+
+.quality-icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #e8f4e8;
+  color: #176b45;
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.quality-item > div {
+  min-width: 0;
+}
+
+.quality-item > div > span {
+  display: block;
+  margin-bottom: 2px;
+  color: #718078;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.quality-item > div > strong {
+  display: block;
+  color: #19382c;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.quality-badge {
+  justify-self: end;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #f0f4ef;
+  color: #56655c;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.quality-badge.verified {
+  background: #e5f2df;
+  color: #28723f;
+}
+
+/* Verification progress */
+.quality-progress {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.quality-progress span {
+  display: block;
+  height: 5px;
+  border-radius: 999px;
+  background: #dfe6df;
+}
+
+.quality-progress span.active {
+  background: #6fa65b;
+}
+
+/* Mobile: keep the icon, text and badge aligned in one clean row. */
+@media (max-width: 600px) {
+  .quality-item {
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    gap: 8px;
+  }
+
+  .quality-badge {
+    grid-column: auto;
+    justify-self: end;
+    padding: 5px 7px;
+    font-size: 9px;
+  }
+}
+
+/* =========================================================
+   AGROCONNECT BRAND LOGO
+   ========================================================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+
+  flex: 0 0 48px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 14px rgba(0, 0, 0, 0.10);
+}
+
+.brand-icon svg {
+  width: 48px;
+  height: 48px;
+
+  display: block;
+}
+
+.brand-text {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.brand-text strong {
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+.brand-text em {
+  color: #b9d88a;
+
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   FINAL DASHBOARD WIDTH FIX
+   ========================================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.page-wrapper {
+  width: calc(100% - var(--sidebar));
+  max-width: none;
+  min-width: 0;
+
+  margin-left: var(--sidebar);
+
+  overflow-x: hidden;
+}
+
+.dashboard-content {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+
+  margin: 0;
+
+  padding: 34px 36px;
+}
+
+
+/* =========================================================
+   PREVENT CHILD ELEMENTS FROM PUSHING PAGE RIGHT
+   ========================================================= */
+
+.dashboard-content > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.dashboard-welcome,
+.section-heading,
+.quick-actions,
+.price-summary-grid,
+.dashboard-two-column,
+.transaction-section,
+.quick-action-card,
+.price-summary-card,
+.calculator-preview,
+.my-lot-section,
+.lot-card,
+.fpo-highlight,
+.transaction-preview {
+  min-width: 0;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   DASHBOARD GRIDS
+   ========================================================= */
+
+.quick-actions {
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.price-summary-grid {
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dashboard-two-column {
+  width: 100%;
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(280px, 0.75fr);
+}
+
+
+/* =========================================================
+   LOT CARD
+   ========================================================= */
+
+.my-lot-section {
+  width: 100%;
+  min-width: 0;
+}
+
+.lot-card {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.lot-card-top,
+.lot-card-footer {
+  min-width: 0;
+}
+
+.lot-card-top > *,
+.lot-card-footer > * {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   QUALITY SECTION
+   ========================================================= */
+
+.quality-status {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+
+  margin-top: 18px;
+  padding-top: 17px;
+
+  border-top: 1px solid #e5ebe5;
+}
+
+.quality-item {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    30px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+.quality-icon {
+  width: 29px;
+  height: 29px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #e8f3e5;
+  color: #176b45;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.quality-item > div {
+  min-width: 0;
+}
+
+.quality-item > div > span {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: #738078;
+
+  font-size: 11px;
+}
+
+.quality-item > div > strong {
+  display: block;
+
+  color: #18392d;
+
+  font-size: 13px;
+
+  white-space: nowrap;
+}
+
+.quality-badge {
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  background: #f0f4ef;
+
+  color: #64736a;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.quality-badge.verified {
+  background: #e4f2df;
+  color: #27733e;
+}
+
+
+/* =========================================================
+   QUALITY PROGRESS
+   ========================================================= */
+
+.quality-progress {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 6px;
+
+  margin-top: 14px;
+}
+
+.quality-progress span {
+  height: 5px;
+
+  border-radius: 999px;
+
+  background: #dfe7df;
+}
+
+.quality-progress span.active {
+  background: #70a75c;
+}
+
+
+/* =========================================================
+   TABLE — SCROLL INSIDE ITSELF
+   ========================================================= */
+
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-container table {
+  width: 100%;
+  min-width: 720px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .dashboard-content {
+    padding: 30px 25px;
+  }
+
+  .dashboard-two-column {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .page-wrapper {
+    width: 100%;
+    max-width: 100%;
+
+    margin-left: 0;
+  }
+
+  .dashboard-content {
+    width: 100%;
+    max-width: 100%;
+
+    padding: 28px 20px;
+  }
+
+  .quick-actions,
+  .price-summary-grid,
+  .dashboard-two-column,
+  .transaction-section {
+    width: 100%;
+    max-width: 100%;
+
+    grid-template-columns: 1fr;
+  }
+
+  .quick-action-card,
+  .price-summary-card,
+  .calculator-preview,
+  .my-lot-section,
+  .transaction-section,
+  .transaction-preview {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .dashboard-content {
+    padding: 24px 16px;
+  }
+
+  .brand-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-basis: 42px;
+  }
+
+  .brand-icon svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-text strong {
+    font-size: 18px;
+  }
+
+  .dashboard-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .dashboard-content {
+    padding: 22px 13px;
+  }
+
+  .brand-text strong {
+    font-size: 17px;
+  }
+
+}
